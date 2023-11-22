@@ -8,7 +8,6 @@ from sqlalchemy import select, asc,desc
 import datetime
 from datetime import datetime, date
 import json
-from tkinter import Y
 from flask import Flask, request, jsonify, render_template
 import json
 from os import path
