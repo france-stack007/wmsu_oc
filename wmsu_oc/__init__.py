@@ -69,6 +69,6 @@ def create_app():
     return app
 
 def create_database(app):
-    if not path.exists('wmsu_oc_db/' + DB_NAME):
+    if not path.exists('railway/' + DB_NAME):
         db.create_all(app=app)
         print('Created Database!')
