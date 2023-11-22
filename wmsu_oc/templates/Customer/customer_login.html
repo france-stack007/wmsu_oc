@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<title>WMSU | Online Canteen</title>
+      
+		<!-- Favicon -->
+		<link rel="shortcut icon" href="<?= PATH_IMAGES.'n_logo.png'; ?>" /> 
+        <link rel="stylesheet" href="{{ url_for('static',filename='assets/css/backend-plugin.min.css')}}">
+        <link rel="stylesheet" href="{{ url_for('static',filename='assets/css/backend.css')}}">
+
+        <link rel="stylesheet" href="{{ url_for('static',filename='assets/css/vendor/@fortawesome/fontawesome-free/css/all.min.css')}}">
+        <link rel="stylesheet" href="{{ url_for('static',filename='assets/css/vendor/line-awesome/dist/line-awesome/css/line-awesome.min.css')}}">
+        <link rel="stylesheet" href="{{ url_for('static',filename='assets/css/vendor/remixicon/fonts/remixicon.css')}}">
+        <link rel="stylesheet" href="{{ url_for('static',filename='assets/css/login_style.css')}}">
+		
+		<!-- <script src="<?= PATH_JPLUGINS.'jquery-3.5.1.js'?>"></script>  -->
+	</head>
+    <body class=" ">
+		<!-- loader Start -->
+		<!-- <div id="loading">
+			  <div id="loading-center">
+			  </div>
+		</div> -->
+		<!-- loader END -->
+
+		<div class="wrapper">
+			<section class="login-content">
+				<div class="container">
+					<div class="row align-items-center justify-content-center height-self-center">
+						<div class="col-lg-9">
+							<div class="card auth-card">
+								<div class="card-body p-0">
+									<div class="d-flex align-items-center auth-content">
+										<div class="col-lg-7 align-self-center">
+											<div class="p-3 ml-3">
+											
+												<h3 class="mb-2">Sign In and stay connected.</h3>
+												<p>A Moments of Delivered on Time </p> 
+													
+													<div class="row">
+														<input type="text" hidden  value="{{msg}}" id="msg">
+
+														<div class="col-lg-12">
+															<div id="login-indicator text-center" >
+																<div id="indicator-msg" style="margin: 0px 0 20px 0px !important;">
+																	<span id="login-indicator-msg" style="display:none"></span>
+																</div>
+															</div>
+														</div>
+														<form  id="frmLogin_customer" class="needs-validation" novalidate action="/login" method="POST">
+															<div class="form-row">
+																<div class="col-lg-12">
+																	<div class="floating-label form-group">
+																		<input autocomplete="off" type="email" id="email_add" name="email_add" class="form-control" id="validationCustom01"  required placeholder="Email Address">
+																		<div class="invalid-feedback">Please check your <strong>Email Address</strong></div>
+																	</div>
+																	
+																</div>
+																<div class="col-lg-12">
+																	<div class="floating-label form-group">
+																		<input autocomplete="off" type="password" minlength="8" id="pass_word" name="pass_word" class="form-control" id="validationCustom02"  required placeholder="Password">
+																		<div class="invalid-feedback">Please check your <strong>Password</strong></div>
+																	</div>
+																</div>
+															</div>
+															<button name="customer_login_bttn" id="customer_login_bttn" class="btn btn-primary" type="submit"><i class='fa fa-arrow-alt-circle-right' style='font-size:20px;'></i>Log-in as Customer</button>
+														</form>
+														
+														<div class="col-lg-12 mt-3">
+															<a href="/"><small><em>Back to Main Page</em></small></a>
+														</div>
+													</div>
+													
+													
+											</div>
+										</div>
+										<div class="col-lg-4 content-right">
+
+											<img src="{{ url_for('static',filename='assets/images/login/01.png')}}" class="img-fluid image-right" alt="">
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+		<script src="sweetalert2.all.min.js"></script>
+		<script>
+			// Get the input element
+			var inputElement = document.getElementById("msg");
+			// Get the value of the input element
+			var inputValue = inputElement.value;
+		 
+			if (inputValue == 'error') {
+			   Swal.fire({
+				  icon: 'error',
+				  title: 'Oops...',
+				  text: 'Something went wrong!'
+				  
+			   })
+		 
+			}
+			else if (inputValue == 'exist') {
+			   Swal.fire(
+				  'Oops...',
+				  'Email Already Exist',
+				  'info'
+			   )
+			}
+			else if (inputValue == 'success') {
+			   Swal.fire(
+				  'Great!',
+				  'Successfully Registered',
+				  'success'
+			   )
+			}
+			else if (inputValue == 'invalid') {
+			   Swal.fire(
+				  'Invalid Domain',
+				  'Please use your wmsu account',
+				  'info'
+			   )
+			}
+			else if (inputValue == 'verify') {
+			   Swal.fire(
+				  'Verify your account first',
+				  'we send you a verification code',
+				  'info'
+			   )
+			}
+			else if (inputValue == 'success_verify') {
+			   Swal.fire(
+				  'Your account has been verify',
+				  'You can now login',
+				  'success'
+			   )
+			}
+			else if (inputValue == 'none') {
+				Swal.fire(
+				   'You don\'t have account',
+				   'Register Now',
+				   'error'
+				)
+			 }
+			else {
+		 
+			}
+		 
+		 
+		 </script>
+
+	
+	</body>
+</html>

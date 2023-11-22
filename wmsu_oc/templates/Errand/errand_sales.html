@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>WMSU | Online Canteen</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="<?= PATH_IMAGES.'n_logo.png'; ?>" />
+    <link rel="stylesheet" href="{{ url_for('static',filename='assets/css/backend-plugin.min.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='assets/css/backend.css')}}">
+
+    <link rel="stylesheet"
+        href="{{ url_for('static',filename='assets/css/vendor/@fortawesome/fontawesome-free/css/all.min.css')}}">
+    <link rel="stylesheet"
+        href="{{ url_for('static',filename='assets/css/vendor/line-awesome/dist/line-awesome/css/line-awesome.min.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='assets/css/vendor/remixicon/fonts/remixicon.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='assets/css/login_style.css')}}">
+
+    <!-- <script src="<?= PATH_JPLUGINS.'jquery-3.5.1.js'?>"></script>  -->
+
+<body class="  ">
+
+    <!-- loader Start -->
+    <!-- <div id="loading">
+                <div id="loading-center"></div>
+            </div> -->
+    <!-- loader END -->
+
+    <!-- Wrapper Start -->
+    <div class="wrapper">
+
+        <!-- [INCLUDE - SIDEBAR MENU] -->
+
+        <div class="iq-sidebar  sidebar-default ">
+            <div class="iq-sidebar-logo d-flex align-items-center justify-content-between">
+                <a href="page_customer_foodslist.php" class="header-logo">
+                    <img src="{{ url_for('static',filename='site_assets/img/n_logo.png')}}"
+                        class="img-fluid rounded-normal light-logo" alt="logo">
+                    <h5 class="logo-title light-logo m-1">Dashboard</h5>
+                </a>
+                <div class="iq-menu-bt-sidebar ml-0">
+                    <i class="las la-bars wrapper-menu"></i>
+                </div>
+            </div>
+
+            <div class="data-scrollbar" data-scroll="1">
+                <nav class="iq-sidebar-menu">
+                    <ul id="iq-sidebar-toggle" class="iq-menu">
+                        <li class=" "  onmouseover="this.style.background='#ed1818'; this.style.color='white'" onmouseout="this.style.background='none'; this.style.color='black'">
+                            <form id="contact-form" name="contact-form" action="/errand_dashboard" method="POST">
+                                <input hidden name="errand_id" class="pull-right" value="{{errand.id}}">
+                                <span class="ml-4"> <button type='submit' style="background:none;border:none">
+                                   Order
+                                   </button></span>
+                            </form>
+                         
+                        </li>
+
+                        <li class=" " >
+                        <li class=" " onmouseover="this.style.background='#ed1818'; this.style.color='white'" onmouseout="this.style.background='none'; this.style.color='black'">
+                            <form id="contact-form" name="contact-form" action="/errand_remittance_cut" method="POST">
+                                <input hidden name="errand_id" class="pull-right" value="{{errand.id}}">
+                               
+                              
+                           
+                                
+                                <span class="ml-4"> <button type='submit' style="background:none;border:none">
+                                   Remittance </p>
+                                   </button></span>
+
+                            
+                           
+                           
+                           
+                            </form>
+                        </li>
+
+                        <li class=" " onmouseover="this.style.background='#ed1818'; this.style.color='white'" onmouseout="this.style.background='none'; this.style.color='black'">
+                            <form id="contact-form" name="contact-form" action="/errand_sales" method="POST">
+                                <input hidden name="errand_id" class="pull-right" value="{{errand.id}}">
+                               
+                              
+                          
+                               
+
+                                <span class="ml-4"> <button type='submit' style="background:none;border:none">
+                                   Sales
+                                   </button></span>
+
+                              
+                           
+    
+                            </form>
+                        </li>
+                        <li class=" " onmouseover="this.style.background='#ed1818'; this.style.color='white'" onmouseout="this.style.background='none'; this.style.color='black'">       
+                            
+                              
+                                <span class="ml-4"> <button id="logout" style="background:none;border:none">
+                                  Logout
+                                   </button></span>
+
+                          
+
+                        </li>
+                    </ul>
+                </nav>
+                <div class="p-3"></div>
+            </div>
+
+
+        </div>
+
+        <!-- [INCLUDE - TOPBAR MENU] -->
+
+        <div class="iq-top-navbar">
+            <div class="iq-navbar-custom">
+                <nav class="navbar navbar-expand-lg navbar-light p-0">
+                    <div class="iq-navbar-logo d-flex align-items-center justify-content-between">
+                        <i class="ri-menu-line wrapper-menu"></i>
+                        <a href="#" class="header-logo">
+                            <img src="images/n_logo.png" class="img-fluid rounded-normal" alt="logo">
+                            <h5 class="logo-title ml-3">WMSU - Online Canteen</h5>
+
+                        </a>
+                    </div>
+                    <div class="iq-search-bar device-search"></div>
+                    <div class="d-flex align-items-center">
+                        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-label="Toggle navigation">
+                            <i class="ri-menu-3-line"></i>
+                        </button>
+
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav ml-auto navbar-list align-items-center" id="cart_reload">
+                                {{errand.first_name}}
+                                <li class="nav-item nav-icon dropdown caption-content">
+                                    <form id="contact-form" name="contact-form" action="/customer_profile" method="POST">
+                                        
+                                        <input hidden name="vendor_id" class="pull-right" value="{{errand.id}}">
+                                       
+                                        <button type='submit' style="background:none;border:none">
+                                            <img src="{{errand.image_url}}" width="50px" height="50px" class="card-img-top" alt="">
+                                           </button>
+
+                                      </form>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+
+
+
+        <div class="content-page">
+            <div class="container-fluid">
+                <div class="row">
+                
+                    <div class="col-sm-12">
+                        <div class="card shadow-bottom shadow-showcase">
+                            <div class="card-header d-flex justify-content-between" style="color: #FFF; background-color: #DC143C !important;border-top-left-radius: 10px;border-top-right-radius: 10px;">
+                                <div class="header-title">
+                                    <h4 class="card-title">Sales Remittance </h4>
+                                </div>
+                                <h3><i class="ri-settings-5-fill"></i></h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-sm-12 col-lg-12 col-md-12">
+                                        <div class="row justify-content-between mb-2">
+                                            <div class="col-sm-6 col-md-6">
+                                                <div class="input-group mb-4" hidden >
+                                                    <div class="input-group-prepend ">
+                                                        <label class="input-group-text bg-danger" for="inputGroupSelect01">Search By : </label>
+                                                    </div>
+                                                    <select class="custom-select" id="selectsearch">
+                                                        <option selected>Choose...</option>
+                                                        <option value="VN">Vendors Name</option>
+                                                        <option value="T">Track #</option>
+                                                        <option value="D">Date</option>
+                                                    </select>
+                                                    <input type="search" class="form-control input-group-text" id="search_keyword" placeholder="Type Here . . ."
+                                                            aria-controls="user-list-table">
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6 col-md-6">
+                                                <!-- -->
+                                            </div>
+                                        </div>
+                                        <div id="display_data" class="table-responsive-sm bottom-left shadow-showcase" style="border-radius: 10px !important;">
+                                            
+                                            <table class="table" id="reload_counter_orderlist">
+                                                <thead  class="text-uppercase" style="background-color: #DC143C;color: #FFF;">
+                                                    <tr>
+                                                        <th class="text-center" scope="col"></th>
+                                                        <th class="text-center" scope="col">Track No.</th>
+                                                        <th class="text-center" scope="col">Mode of Payment</th>
+                                                        <th class="text-center" scope="col">Total Payment</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    {% for sale in sale %}
+                                                            <tr>
+                                                                <td class="text-center">
+                                                                   
+
+                                                                <td class="text-center">
+                                                                    {{sale.track_no}}
+                                                                </td>
+                                                                <td class="text-center">
+                                                                    {{sale.mop}}
+                                                                </td>
+                                                               
+                                                                <td class="text-center">
+                                                                    {{sale.total}}
+                                                                </td>
+                                                            </tr>
+                                       
+                                                            
+                                                            {% endfor %}
+                                                <tr  style="background-color: antiquewhite;">
+                                                    <td class="text-right" colspan="3">
+                                                        <h6 class="mb-0"><strong>TOTAL SALES <strong></h6>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        {{total_sum}}
+                                                    </td>
+                                                </tr>
+                                               
+                                                
+                                                
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Page end  -->
+            </div>
+        </div>
+    </div>
+
+    <!-- [INCLUDE - FOOTER] -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="sweetalert2.all.min.js"></script>
+    <script>
+        document.getElementById("logout").addEventListener("click", function () {
+            Swal.fire({
+                title: 'Are you sure you want to logout?',
+    
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes'
+            }).then((result)=> {
+                if (result.isConfirmed) {
+                    window.location.replace('/logout');
+    
+                }
+            })
+        });
+    
+    
+    </script>
+
+</body>
+
+</html>
+
+<script>
+    var dropdown = document.getElementById("user_type");
+    var tagToHide = document.getElementById("user");
+    var sn_staff = document.getElementById("sn_staff");
+    var sn_vendor = document.getElementById("sn_vendor");
+
+    dropdown.addEventListener("change", function () {
+        if (dropdown.value === "2") {
+            tagToHide.hidden = false;
+            sn_vendor.hidden = false;
+
+        } 
+        else if (dropdown.value === "3") {
+            tagToHide.hidden = false;
+            sn_staff.hidden = false;
+            sn_vendor.hidden = true;
+
+        } 
+        else if (dropdown.value === "4") {
+            tagToHide.hidden = false;
+            sn_vendor.hidden = true;
+            sn_staff.hidden = true;
+        } 
+        
+        else {
+            tagToHide.hidden = true; 
+        }
+    });
+</script>

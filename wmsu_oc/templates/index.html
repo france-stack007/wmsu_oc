@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+
+<html lang="en" class="no-js">
+
+<head>
+  <!-- meta charec set -->
+  <meta charset="utf-8">
+  <!-- Always force latest IE rendering engine or request Chrome Frame -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <!-- Page Title -->
+  <title>WMSU | Onlince Canteen</title>
+  <link rel="stylesheet" href="{{ url_for('static',filename='style.css')}}">
+  <!-- Meta Description -->
+  <meta name="description" content="Blue One Page Creative HTML5 Template">
+  <meta name="keywords"
+    content="one page, single page, onepage, responsive, parallax, creative, business, html5, css3, css3 animation">
+  <meta name="author" content="Muhammad Morshed">
+  <!-- Mobile Specific Meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Google Font -->
+
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+  <!-- CSS
+		================================================== -->
+  <!-- Fontawesome Icon font -->
+  <link rel="stylesheet" href="{{ url_for('static',filename='site_assets/css/font-awesome.min.css')}}">
+
+  <!-- Twitter Bootstrap css -->
+  <link rel="stylesheet" href="{{ url_for('static',filename='site_assets/css/bootstrap.min.css')}}">
+
+  <!-- jquery.fancybox  -->
+  <link rel="stylesheet" href="{{ url_for('static',filename='site_assets/css/jquery.fancybox.css')}}">
+
+  <!-- animate -->
+  <link rel="stylesheet" href="{{ url_for('static',filename='site_assets/css/animate.css')}}">
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="{{ url_for('static',filename='site_assets/css/main.css')}}">
+
+  <!-- media-queries -->
+  <link rel="stylesheet" href="{{ url_for('static',filename='site_assets/css/media-queries.css')}}">
+
+
+  <!-- Modernizer Script for old Browsers -->
+  <script src="site_assets/js/modernizr-2.6.2.min.js"></script>
+
+</head>
+
+<body id="home">
+
+  <!-- preloader -->
+  <!-- <div id="preloader">
+      <img src="site_assets/img/preloader.gif" alt="Preloader">
+  </div> -->
+  <!-- end preloader -->
+
+  <!-- 
+      Fixed Navigation
+      ==================================== -->
+  <header id="navigation" class="navbar-fixed-top navbar">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- responsive nav button -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <i class="fa fa-bars fa-2x"></i>
+        </button>
+        <!-- /responsive nav button -->
+
+        <!-- logo -->
+        <a class="navbar-brand" href="#home">
+          <h1 id="logo">
+            <img src="{{ url_for('static',filename='site_assets/img/logo.png')}}" alt="Branding">
+          </h1>
+        </a>
+        <!-- /logo -->
+      </div>
+
+      <!-- main nav -->
+      <nav class="collapse navbar-collapse navbar-right" role="navigation">
+        <ul id="nav" class="nav navbar-nav">
+          <li class="current"><a href="#home">Home</a></li>
+          <li><a href="#foods">Foods</a></li>
+          <li><a href="#registration">Registration</a></li>
+          <li><a href="#signin">Log-In</a></li>
+        </ul>
+      </nav>
+      <!-- /main nav -->
+
+    </div>
+  </header>
+  <!--
+      End Fixed Navigation
+      ==================================== -->
+
+
+
+  <!--
+      Home Slider
+      ==================================== -->
+
+  <section id="slider">
+    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+
+      <!-- Indicators bullet -->
+      <ol class="carousel-indicators">
+
+      </ol>
+      <!-- End Indicators bullet -->
+
+      <!-- Wrapper for slides -->
+      <div class="carousel-inner" role="listbox">
+
+        <!-- single slide -->
+        <div class="item active img-fluid" style="background-image: url(/static/site_assets/img/banner-2.jpg);">
+          <div class="carousel-caption">
+
+          </div>
+        </div>
+        <!-- end single slide -->
+
+        <!-- single slide -->
+        <div class="item img-fluid" style="background-image: url(/static/site_assets/img/banner-3.jpg);">
+
+          <div class="carousel-caption">
+
+
+          </div>
+        </div>
+        <!-- end single slide -->
+
+        <!-- single slide -->
+        <div class="item img-fluid" style="background-image: url(/static/site_assets/img/banner-4.jpg);">
+          <div class="carousel-caption">
+
+          </div>
+        </div>
+        <!-- end single slide -->
+
+      </div>
+      <!-- End Wrapper for slides -->
+
+    </div>
+  </section>
+
+  <!--
+      End Home SliderEnd
+      ==================================== -->
+
+
+  <!--
+      Our Works
+      ==================================== -->
+
+  <section id="foods" class="works clearfix">
+    <div class="container">
+      <div class="row">
+
+        <div class="sec-title text-center">
+          <h2>MENU</h2>
+          <div class="devider"><i class="fa fa-heart-o fa-lg"></i></div>
+        </div>
+
+        <div class="sec-sub-title text-center ">
+          <p>We are always here to serve you</p>
+        </div>
+
+        <div hidden class="work-filter wow fadeInRight animated" data-wow-duration="500ms">
+          <ul class="text-center">
+            <li><a href="javascript:;" data-filter="all" class="active filter">All</a></li>
+            <li><a href="javascript:;" data-filter=".SoloMeal" class="filter">Solo Meal</a></li>
+            <li><a href="javascript:;" data-filter=".ComboMeal" class="filter">Combo Meal</a></li>
+            <li><a href="javascript:;" data-filter=".Drinks" class="filter">Drinks</a></li>
+            <li><a href="javascript:;" data-filter=".Snacks" class="filter">Snacks</a></li>
+            <li><a href="javascript:;" data-filter=".Desserts" class="filter">Desserts</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-wrapper">
+      <!-- Solo Meal -->
+
+        <img
+          src="{{ url_for('static',filename='site_assets/img/ads_img/solo/Half Spicy, Half Soy Garlic Fried Chicken.jpg')}}"
+          alt="">
+        <figcaption class="overlay">
+          <a class="fancybox" rel="ads_img" title="Half Spicy, Half Soy Garlic Fried Chicken"
+            href="site_assets/img/ads_img/solo/Half Spicy, Half Soy Garlic Fried Chicken.jpg"><i
+              class="fa fa-eye fa-lg"></i></a>
+          <h4>Half Spicy, Half Soy Garlic Fried Chicken</h4>
+          <p>Solo Meal</p>
+        </figcaption>
+     
+      
+        <img src="{{ url_for('static',filename='site_assets/img/ads_img/solo/Marinated Beef Bulgogi Solo Meal.jpg')}}" alt="">
+        <figcaption class="overlay">
+          <a class="fancybox" rel="ads_img" title="Marinated Beef Bulgogi Solo Meal"
+            href="site_assets/img/ads_img/solo/Marinated Beef Bulgogi Solo Meal.jpg"><i class="fa fa-eye fa-lg"></i></a>
+          <h4>Marinated Beef Bulgogi Solo Meal</h4>
+          <p>Solo Meal</p>
+        </figcaption>
+    
+        <img src="{{ url_for('static',filename='site_assets/img/ads_img/solo/Spicy Fried Chicken Whole.jpg')}}" alt="">
+        <figcaption class="overlay">
+          <a class="fancybox" rel="ads_img" title="Spicy Fried Chicken Whole"
+            href="site_assets/img/ads_img/solo/Spicy Fried Chicken Whole.jpg"><i class="fa fa-eye fa-lg"></i></a>
+          <h4>Spicy Fried Chicken Whole</h4>
+          <p>Solo Meal</p>
+        </figcaption>
+    
+      <!-- END Solo Meal -->
+
+      <!-- COmbo Meal -->
+    
+        <img src="{{ url_for('static',filename='site_assets/img/ads_img/combo/combo1.jpg')}}" alt="">
+        <figcaption class="overlay">
+          <a class="fancybox" rel="ads_img" title="Combo 1" href="site_assets/img/ads_img/combo/combo1.jpg"><i
+              class="fa fa-eye fa-lg"></i></a>
+          <h4>Combo 1</h4>
+          <p>Combo Meal</p>
+        </figcaption>
+        <img src="{{ url_for('static',filename='site_assets/img/ads_img/combo/combo2.jpg')}}" alt="">
+        <figcaption class="overlay">
+          <a class="fancybox" rel="ads_img" title="Combo 2" href="site_assets/img/ads_img/combo/combo2.jpg"><i
+              class="fa fa-eye fa-lg"></i></a>
+          <h4>Combo 2</h4>
+          <p>Combo Meal</p>
+        </figcaption>
+      
+     
+        
+        <img src="{{ url_for('static',filename='site_assets/img/ads_img/combo/combo3.jpg')}}" alt="">
+        <figcaption class="overlay">
+          <a class="fancybox" rel="ads_img" title="Combo 3" href="site_assets/img/ads_img/combo/combo3.jpg"><i
+              class="fa fa-eye fa-lg"></i></a>
+          <h4>Combo 3</h4>
+          <p>Combo Meal</p>
+        </figcaption>
+      
+      <!-- END COmbo Meal -->
+
+      <!-- Drinks -->
+      
+        <img src="{{ url_for('static',filename='site_assets/img/ads_img/drinks/Buko Salad Drink.jpg')}}" alt="">
+        <figcaption class="overlay">
+          <a class="fancybox" rel="ads_img" title="Buko Salad Drink"
+            href="site_assets/img/ads_img/drinks/Buko Salad Drink.jpg"><i class="fa fa-eye fa-lg"></i></a>
+          <h4>Buko Salad Drink</h4>
+          <p>Drinks</p>
+        </figcaption>
+        
+        <img src="{{ url_for('static',filename='site_assets/img/ads_img/drinks/Buko Shake.jpg')}}" alt="">
+        <figcaption class="overlay">
+          <a class="fancybox" rel="ads_img" title="Buko Shake" href="site_assets/img/ads_img/drinks/Buko Shake.jpg"><i
+              class="fa fa-eye fa-lg"></i></a>
+          <h4>Buko Shake</h4>
+          <p>Drinks</p>
+        </figcaption>
+        
+        <img src="{{ url_for('static',filename='site_assets/img/ads_img/drinks/Sago at Gulaman.jpg')}}" alt="">
+        <figcaption class="overlay">
+          <a class="fancybox" rel="ads_img" title="Sago at Gulaman"
+            href="site_assets/img/ads_img/drinks/Sago at Gulaman.jpg"><i class="fa fa-eye fa-lg"></i></a>
+          <h4>Sago at Gulaman</h4>
+          <p>Drinks</p>
+        </figcaption>
+    
+      <!-- End Drinks -->
+
+      <!-- Snacks -->
+        <img src="{{ url_for('static',filename='site_assets/img/ads_img/snacks/Balut.jpg')}}" alt="">
+        <figcaption class="overlay">
+          <a class="fancybox" rel="ads_img" title="Balut" href="site_assets/img/ads_img/snacks/Balut.jpg"><i
+              class="fa fa-eye fa-lg"></i></a>
+          <h4>Balut</h4>
+          <p>Snacks</p>
+        </figcaption>
+        <img src="{{ url_for('static',filename='site_assets/img/ads_img/snacks/Chicharon.jpg')}}" alt="">
+        <figcaption class="overlay">
+          <a class="fancybox" rel="ads_img" title="Chicharon" href="site_assets/img/ads_img/snacks/Chicharon.jpg"><i
+              class="fa fa-eye fa-lg"></i></a>
+          <h4>Chicharon</h4>
+          <p>Snacks</p>
+        </figcaption>
+     
+        <img src="{{ url_for('static',filename='site_assets/img/ads_img/snacks/Suman.jpg')}}" alt="">
+        <figcaption class="overlay">
+          <a class="fancybox" rel="ads_img" title="Suman" href="site_assets/img/ads_img/snacks/Suman.jpg"><i
+              class="fa fa-eye fa-lg"></i></a>
+          <h4>Suman</h4>
+          <p>Snacks</p>
+        </figcaption>
+     
+      <!-- End Snacks -->
+
+      <!-- Desserts -->
+      
+        <img src="{{ url_for('static',filename='site_assets/img/ads_img/dessert/Banana Cue.jpg')}}" alt="">
+        <figcaption class="overlay">
+          <a class="fancybox" rel="ads_img" title="Banana Cue" href="site_assets/img/ads_img/dessert/Banana Cue.jpg"><i
+              class="fa fa-eye fa-lg"></i></a>
+          <h4>Banana Cue</h4>
+          <p>Desserts</p>
+        </figcaption>
+        
+        <img src="{{ url_for('static',filename='site_assets/img/ads_img/dessert/Buko Salad.jpg')}}" alt="">
+        <figcaption class="overlay">
+          <a class="fancybox" rel="ads_img" title="Buko Salad" href="site_assets/img/ads_img/dessert/Buko Salad.jpg"><i
+              class="fa fa-eye fa-lg"></i></a>
+          <h4>Buko Salad</h4>
+          <p>Desserts</p>
+        </figcaption>
+    
+        <img src=" {{ url_for('static',filename='site_assets/img/ads_img/dessert/Taho.jpg')}}" alt="">
+        <figcaption class="overlay">
+          <a class="fancybox" rel="ads_img" title="Taho" href="site_assets/img/ads_img/dessert/Taho.jpg"><i
+              class="fa fa-eye fa-lg"></i></a>
+          <h4>Taho</h4>
+          <p>Desserts</p>
+        </figcaption>
+    
+      <!-- End Desserts -->
+    </div>
+
+
+  </section>
+
+  <!--
+      End Our Works
+      ==================================== -->
+
+  <!--
+      Contact Us
+      ==================================== -->
+
+  <section id="registration" class="contact">
+    <div class="container">
+      <div class="row mb50">
+
+        <div class="sec-title text-center mb50 wow fadeInDown animated" data-wow-duration="500ms">
+          <h2>Register Here!</h2>
+          <div class="devider"><i class="fa fa-heart-o fa-lg"></i></div>
+        </div>
+
+        <div class="sec-sub-title text-center wow rubberBand animated" data-wow-duration="1000ms">
+        </div>
+
+        <!-- contact address -->
+        <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12 wow fadeInLeft animated" data-wow-duration="500ms">
+          <div class="contact-address">
+            <h3>WMSU - Online Canteen</h3>
+            <p><i class="fa fa-map-marker fa-lg"></i> &nbsp;&nbsp; Normal Rd, Zamboanga City </p>
+            <p><i class="fa fa-location-arrow fa-lg"></i> &nbsp;&nbsp; Zamboanga del Sur, 7000</p>
+            <p><i class="fa fa-phone-square fa-lg"></i> &nbsp;&nbsp; (062) 991 1040<a
+                href="../login_form.php">Sign-In</a></p>
+          </div>
+        </div>
+        <!-- end contact address -->
+
+        <!-- contact form -->
+        <div class="col-lg-9 col-md-8 col-sm-7 col-xs-12 wow fadeInDown animated" data-wow-duration="500ms"
+          data-wow-delay="300ms">
+          <div class="contact-form">
+            <form id="contact-form" name="contact-form" action="/registration" method="POST">
+            
+              <div class="input-group">
+                <div class="input-field">
+                  
+                  <input autocomplete="off" type="text" name="lastname" id="lastname" class="form-control"
+                    placeholder="Last Name" style="font-family:Arial, FontAwesome">
+                </div>
+                <div class="input-field">
+                  <input autocomplete="off" type="text" name="firstname" id="firstname" class="form-control"
+                    placeholder="First Name" style="font-family:Arial, FontAwesome">
+                </div>
+
+              </div>
+              <div class="input-group">
+                <div class="input-field">
+                  <input autocomplete="off" type="text" name="mi" id="mi" class="form-control" placeholder="Middle Name"
+                    style="font-family:Arial, FontAwesome">
+                </div>
+                <div class="input-field">
+                  <input type="text" name="contact" id="contact" class="form-control" placeholder="Contact"
+                    style="font-family:Arial, FontAwesome">
+                </div>
+              </div>
+
+              <div class="input-group">
+                <div class="input-field">
+                  <input autocomplete="off" type="email" name="email_add" id="email_add" class="form-control"
+                    placeholder="Email Address" style="font-family:Arial, FontAwesome">
+                </div>
+                <div class="input-field">
+                  <input type="password" name="pass_word" id="" class="form-control"
+                    placeholder="Password" style="font-family:Arial, FontAwesome">
+                </div>
+              </div>
+              <div class="input-group">
+                <input type="submit" id="form-submit" name="form-submit" class="pull-right" value="Register">
+              </div>
+            </form>
+
+          </div>
+        </div>
+        <!-- end contact form -->
+
+      </div>
+    </div>
+
+  </section>
+
+  <!--
+      Meet Our Team
+      ==================================== -->
+
+  <section id="signin" class="team">
+    <div class="container">
+      <div class="row">
+
+        <div class="sec-title text-center wow fadeInUp animated" data-wow-duration="700ms">
+          <h2>Log - In</h2>
+          <div class="devider"><i class="fa fa-heart-o fa-lg"></i></div>
+        </div>
+
+        <figure class="team-member col-md-3 col-sm-6 col-xs-12 text-center wow fadeInUp animated"
+          data-wow-duration="500ms" data-wow-delay="300ms">
+        </figure>
+        <!-- single member -->
+        <figure class="team-member col-md-3 col-sm-6 col-xs-12 text-center wow fadeInUp animated"
+          data-wow-duration="500ms">
+          <div class="member-thumb">
+
+            <img src="{{ url_for('static',filename='site_assets/img/signin_banner_0.png')}}" alt="Team Member"
+              class="img-responsive">
+            <figcaption class="overlay">
+              <h5><a href='/admin_route'>Click Here!</a> </h5>
+            </figcaption>
+          </div>
+
+        </figure>
+        <!-- end single member -->
+
+        <!-- single member -->
+        <figure class="team-member col-md-3 col-sm-6 col-xs-12 text-center wow fadeInUp animated"
+          data-wow-duration="500ms" data-wow-delay="300ms">
+          <div class="member-thumb">
+
+            <img src="{{ url_for('static',filename='site_assets/img/signin_banner_1.png')}}" alt="Team Member"
+              class="img-responsive">
+            <figcaption class="overlay">
+              <h5><a href='/customer_login'>Click Here!</a> </h5>
+            </figcaption>
+          </div>
+
+        </figure>
+        <!-- end single member -->
+        <figure class="team-member col-md-3 col-sm-6 col-xs-12 text-center wow fadeInUp animated"
+          data-wow-duration="500ms" data-wow-delay="300ms">
+        </figure>
+
+
+      </div>
+    </div>
+    <input  id="msg" class="form-control" hidden value="{{msg}}">
+    
+  </section>
+
+
+
+  <!-- Custom Functions -->
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="sweetalert2.all.min.js"></script>
+ 
+</body>
+
+</html>
+
+<script>
+  // Get the input element
+  var inputElement = document.getElementById("msg");
+  // Get the value of the input element
+  var inputValue = inputElement.value;
+
+  if (inputValue == 'error') {
+     Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Something went wrong!',
+        footer: '<a href="">Why do I have this issue?</a>'
+     })
+
+  }
+  else if (inputValue == 'exist') {
+     Swal.fire(
+        'Oops...',
+        'Email Already Exist',
+        'info'
+     )
+  }
+  else if (inputValue == 'success') {
+     Swal.fire(
+        'Great!',
+        'Successfully Registered',
+        'success'
+     )
+  }
+  else if (inputValue == 'invalid') {
+    Swal.fire(
+     'Invalid Domain',
+     'Please use your wmsu account',
+     'info'
+    )
+ }
+  else if (inputValue == 'verify') {
+     Swal.fire(
+        'Verify your account first',
+        'we send you a verification code',
+        'info'
+     )
+  }
+  else if (inputValue == 'success_verify') {
+     Swal.fire(
+        'Your account has been verify',
+        'You can now login',
+        'success'
+     )
+  }
+  else {
+
+  }
+</script>

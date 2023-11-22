@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<title>WMSU | Online Canteen</title>
+      
+		<!-- Favicon -->
+		<link rel="shortcut icon" href="<?= PATH_IMAGES.'n_logo.png'; ?>" /> 
+        <link rel="stylesheet" href="{{ url_for('static',filename='assets/css/backend-plugin.min.css')}}">
+        <link rel="stylesheet" href="{{ url_for('static',filename='assets/css/backend.css')}}">
+
+        <link rel="stylesheet" href="{{ url_for('static',filename='assets/css/vendor/@fortawesome/fontawesome-free/css/all.min.css')}}">
+        <link rel="stylesheet" href="{{ url_for('static',filename='assets/css/vendor/line-awesome/dist/line-awesome/css/line-awesome.min.css')}}">
+        <link rel="stylesheet" href="{{ url_for('static',filename='assets/css/vendor/remixicon/fonts/remixicon.css')}}">
+        <link rel="stylesheet" href="{{ url_for('static',filename='assets/css/login_style.css')}}">
+		
+		<!-- <script src="<?= PATH_JPLUGINS.'jquery-3.5.1.js'?>"></script>  -->
+        <body class="  ">
+	
+            <!-- loader Start -->
+            <!-- <div id="loading">
+                <div id="loading-center"></div>
+            </div> -->
+            <!-- loader END -->
+            
+            <!-- Wrapper Start -->
+            <div class="wrapper">
+            
+                <!-- [INCLUDE - SIDEBAR MENU] -->
+
+                <div class="iq-sidebar  sidebar-default ">
+                    <div class="iq-sidebar-logo d-flex align-items-center justify-content-between">
+                        <a href="page_customer_foodslist.php" class="header-logo">
+                            <img src="{{ url_for('static',filename='site_assets/img/n_logo.png')}}" class="img-fluid rounded-normal light-logo" alt="logo"><h5 class="logo-title light-logo m-1">Dashboard</h5>
+                        </a>
+                        <div class="iq-menu-bt-sidebar ml-0">
+                            <i class="las la-bars wrapper-menu"></i>
+                        </div>
+                    </div>
+                  
+                    <div class="data-scrollbar" data-scroll="1">
+                            <nav class="iq-sidebar-menu">
+                                <ul id="iq-sidebar-toggle" class="iq-menu">
+                            
+                               
+                                    <li class=" " onmouseover="this.style.background='#ed1818'; this.style.color='white'" onmouseout="this.style.background='none'; this.style.color='black'">
+                                        <form id="contact-form" name="contact-form" action="/customer_page" method="POST">
+                                            <input hidden name="customer_id" class="pull-right" value="{{customer.id}}">
+                                           
+                                          
+        
+            
+                                            <span class="ml-4"> <button type='submit' style="background:none;border:none">
+                                               Foods
+                                               </button></span>
+            
+                                           
+                                        
+                                        
+                                        </form>
+                                    </li>
+
+                                    <li class=" " onmouseover="this.style.background='#ed1818'; this.style.color='white'" onmouseout="this.style.background='none'; this.style.color='black'">
+                                        <form id="contact-form" name="contact-form" action="/customer_orderlist" method="POST">
+                                            <input hidden name="customer_id" class="pull-right" value="{{customer.id}}">
+                                           
+                                          
+                                    
+                                          
+            
+                                            <span class="ml-4"> <button type='submit' style="background:none;border:none">
+                                               Order Details
+                                               </button></span>
+            
+                                            
+                          
+                                        </form>
+                                    </li>
+                                    <li class=" " onmouseover="this.style.background='#ed1818'; this.style.color='white'" onmouseout="this.style.background='none'; this.style.color='black'">
+                                        <form id="contact-form" name="contact-form" action="/track" method="POST">
+                                            <input hidden name="customer_id" class="pull-right" value="{{customer.id}}">
+                                        
+                                     
+            
+                                            <span class="ml-4"> <button type='submit' style="background:none;border:none">
+                                               Order Status
+                                               </button></span>
+            
+                                         
+                                      
+                                       
+                                        </form>
+                                    </li>
+
+                                    <li class=" " onmouseover="this.style.background='#ed1818'; this.style.color='white'" onmouseout="this.style.background='none'; this.style.color='black'">
+                                        <form id="contact-form" name="contact-form" action="/customer_transaction" method="POST">
+                                            <input hidden name="customer_id" class="pull-right" value="{{customer.id}}">
+                                            <span class="ml-4"> <button type='submit' style="background:none;border:none">
+                                               Order Complete
+                                               </button></span>
+            
+                                           
+                                       
+                                       
+                                        </form>
+                                    </li>
+
+                                    <li class=" " onmouseover="this.style.background='#ed1818'; this.style.color='white'" onmouseout="this.style.background='none'; this.style.color='black'">
+                                      
+                                          
+                                           
+                                          
+                                       
+                                          
+            
+                                            <span class="ml-4"> <button id="logout" style="background:none;border:none">
+                                              Logout
+                                               </button></span>
+            
+                                           
+                                       
+                            
+                                      
+                                    </li>
+
+
+                                </ul>
+                            </nav>	
+                        <div class="p-3"></div>
+                    </div>
+                 
+                </div> 
+             
+                <!-- [INCLUDE - TOPBAR MENU] -->
+
+                <div class="iq-top-navbar">
+                    <div class="iq-navbar-custom">
+                        <nav class="navbar navbar-expand-lg navbar-light p-0">
+                            <div class="iq-navbar-logo d-flex align-items-center justify-content-between">
+                                <i class="ri-menu-line wrapper-menu"></i>
+                                <a href="#" class="header-logo">
+                                    <img src="images/n_logo.png" class="img-fluid rounded-normal" alt="logo">
+                                    <h5 class="logo-title ml-3">WMSU - Online Canteen</h5>
+                                    <input type="text" id="msg" hidden value="{{msg}}">
+                
+                                </a>
+                            </div>
+                            <div class="iq-search-bar device-search"></div>
+                            <div class="d-flex align-items-center">
+                                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                                    aria-label="Toggle navigation">
+                                    <i class="ri-menu-3-line"></i>
+                                </button>
+                                
+                            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                <ul class="navbar-nav ml-auto navbar-list align-items-center" id="cart_reload">
+                                    {{customer.first_name}}
+                                    <form id="contact-form" name="contact-form" action="/customer_orderlist" method="POST">
+                                       <input hidden name="customer_id" class="pull-right" value="{{customer.id}}">
+                                       <li class="nav-item nav-icon dropdown">
+                                          <button type='submit' style="background:none;border:none">
+                                           <a href="" class="search-toggle dropdown-toggle" id="dropdownMenuButton">
+                                               <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-cart3" viewBox="0 0 16 16"> <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/> </svg>
+                                               <span class="mt-2 badge badge-danger" style="position: absolute;left: 15px !important;top: 2px !important;"></span>
+                                           </a>
+                                          </button>
+                                       </li>	
+                                     </form>
+                                       
+                                       <li class="nav-item nav-icon dropdown caption-content">
+                                           <form id="contact-form" name="contact-form" action="/customer_profile" method="POST">
+                                               
+                                               <input hidden name="customer_id" class="pull-right" value="{{customer.id}}">
+                                               <button type='submit' style="background:none;border:none">
+                                                   <img src="{{customer.image_url}}" width="50px" height="50px" class="card-img-top" alt="">
+                                                  </button>
+                                               
+                                             
+                                           
+                                             </form>
+                                       </li>
+                                </ul>
+                            </div>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+           
+                
+                <div class="content-page">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <p class="card-title d-inline-block"><i class="ri-restaurant-fill"></i>&nbsp;<small>{{vendor.store_name}}</small></p>
+
+                            <div class="col-lg-12">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="card card-block card-stretch card-height">
+                                            <div class="card-body">
+                                                <div class="row">
+
+                                                    <div class="col-md-12 col-md-6">
+                                                        <div class="row row-cols-1 row-cols-md-4 g-4">
+                                                          
+                                        
+                                                            {% for food in food %}
+                                                          
+                                                      
+                                                            <div class="col">
+                                                                <div class="card bottom-left shadow-showcase">
+                                                                    <img src="{{food.image_url}}" width="250px" height="350px" class="card-img-top" alt="">
+                                                                    <div class="card-body text-danger" style="padding: 10px 10px 0px 15px !important;">
+                                                                        <p class="card-title d-inline-block"><i class="ri-restaurant-fill"></i>&nbsp;<small>{{food.food_name}}</small></p>
+                                                                        <p class="card-text d-inline-block float-right"><small></small></p>
+                                                                    </div>
+                                                                    <div class="card-footer text-muted">
+                                                                        <a href="#" class="card-link d-inline-block">
+                                                                            <span class="mt-2 badge badge-primary">&#8369; {{food.price}}</span>
+                                                                        </a>
+                                                                        <form id="contact-form" name="contact-form" action="/add_to_cart" method="POST">
+                                                                            <a href='' class="card-link btn btn-danger d-inline-block float-right mr-2">
+                                                                                <input type="number" hidden  value="{{food.id}}" name="food_id">
+                                                                                <input type="number" hidden  value="{{vendor.id}}" name="vendor_id">
+                                                                                <input type="number" hidden  value="{{customer.id}}" name="customer_id">
+                                                                                <small><input type="submit"  style="border:none;background:none" value="Add to Cart">
+                                                                                </small>
+                                                                                   
+                                                                            </a>
+                                                                         
+                                                                        </form>
+                                                                        
+                                                                        
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        {% endfor %}
+                                                            
+
+                                                        </div>
+                                                    </div>
+                                                    
+                                                   
+                                                    
+                                                   
+                                                    <div class="col-md-12" style="margin-top: 15px;">
+                                                        <nav aria-label="Page navigation example">
+                                                            <ul class="pagination pagination-sm justify-content-center">
+                                                                <li class="page-item"><a class="page-link"
+                                                                > Previous</a></li>
+                                                                
+                                                             
+                                                                <li class="page-item"><a class="page-link" href="?page_no="></a></li>
+                                                                  
+                                                                <li class="page-item"><a class="page-link active" href="#"></a></li>
+                                                               
+                                                                <li class="page-item"><a class="page-link ">Next</a></li>
+                                                            </ul>
+                                                        </nav>
+                                                    </div>
+                                                    <div class="col-md-12 text-center" style="margin-top: 5px;">
+                                                            <strong> Page</strong>
+                                                    </div>
+                                                
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Page end  -->
+                    </div>
+                </div>
+            </div>
+            
+            <!-- [INCLUDE - FOOTER] -->
+            <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+            <script src="sweetalert2.all.min.js"></script>
+            <script>
+                document.getElementById("logout").addEventListener("click", function () {
+                    Swal.fire({
+                        title: 'Are you sure you want to logout?',
+            
+                        icon: 'question',
+                        showCancelButton: true,
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor: '#d33',
+                        confirmButtonText: 'Yes'
+                    }).then((result)=> {
+                        if (result.isConfirmed) {
+                            window.location.replace('/logout');
+            
+                        }
+                    })
+                });
+            
+           
+            </script>
+            <script>
+                // Get the input element
+                var inputElement = document.getElementById("msg");
+                // Get the value of the input element
+                var inputValue = inputElement.value;
+             
+                if (inputValue == 'error') {
+                   Swal.fire({
+                      icon: 'error',
+                      title: 'Oops...',
+                      text: 'Something went wrong!',
+                      footer: '<a href="">Why do I have this issue?</a>'
+                   })
+             
+                }
+                else if (inputValue == 'exist') {
+                   Swal.fire(
+                      'Oops...',
+                      'Email Already Exist',
+                      'info'
+                   )
+                }
+                else if (inputValue == 'success') {
+                   Swal.fire(
+                      'Great!',
+                      'Successfully Registered',
+                      'success'
+                   )
+                }
+                else if (inputValue == 'invalid') {
+                   Swal.fire(
+                      'Invalid',
+                      'Email/Password',
+                      'info'
+                   )
+                }
+                else if (inputValue == 'verify') {
+                   Swal.fire(
+                      'Verify your account first',
+                      'we send you a verification code',
+                      'info'
+                   )
+                }
+                else if (inputValue == 'success_verify') {
+                   Swal.fire(
+                      'Your account has been verify',
+                      'You can now login',
+                      'success'
+                   )
+                }
+                else {
+             
+                }
+             
+             
+             </script>
+
+             <script>
+                document.getElementById("logout").addEventListener("click", function () {
+                    Swal.fire({
+                        title: 'Are you sure you want to logout?',
+            
+                        icon: 'question',
+                        showCancelButton: true,
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor: '#d33',
+                        confirmButtonText: 'Yes'
+                    }).then((result)=> {
+                        if (result.isConfirmed) {
+                            window.location.replace('/logout');
+            
+                        }
+                    })
+                });
+            
+           
+            </script>
+       
+        </body>
+</html>

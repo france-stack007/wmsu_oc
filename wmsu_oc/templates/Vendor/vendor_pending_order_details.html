@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>WMSU | Online Canteen</title>
+
+    <!-- Favicon -->
+
+    <!-- Include CSS files -->
+    <link rel="shortcut icon" href="<?= PATH_IMAGES.'n_logo.png'; ?>" />
+    <link rel="stylesheet" href="{{ url_for('static',filename='assets/css/backend-plugin.min.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='assets/css/backend.css')}}">
+
+    <link rel="stylesheet"
+        href="{{ url_for('static',filename='assets/css/vendor/@fortawesome/fontawesome-free/css/all.min.css')}}">
+    <link rel="stylesheet"
+        href="{{ url_for('static',filename='assets/css/vendor/line-awesome/dist/line-awesome/css/line-awesome.min.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='assets/css/vendor/remixicon/fonts/remixicon.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='assets/css/login_style.css')}}">
+    <!-- <script src="<?= PATH_JPLUGINS.'jquery-3.5.1.js'?>"></script>  -->
+
+<body class="  ">
+
+    <!-- loader Start -->
+    <!-- <div id="loading">
+                <div id="loading-center"></div>
+            </div> -->
+    <!-- loader END -->
+
+    <!-- Wrapper Start -->
+    <div class="wrapper">
+
+        <!-- [INCLUDE - SIDEBAR MENU] -->
+
+        <div class="iq-sidebar  sidebar-default ">
+            <div class="iq-sidebar-logo d-flex align-items-center justify-content-between">
+                <a href="page_customer_foodslist.php" class="header-logo">
+                    <img src="{{ url_for('static',filename='site_assets/img/n_logo.png')}}"
+                        class="img-fluid rounded-normal light-logo" alt="logo">
+                    <h5 class="logo-title light-logo m-1">Dashboard</h5>
+                </a>
+                <div class="iq-menu-bt-sidebar ml-0">
+                    <i class="las la-bars wrapper-menu"></i>
+                </div>
+            </div>
+
+            <div class="data-scrollbar" data-scroll="1">
+                <nav class="iq-sidebar-menu">
+                    <ul id="iq-sidebar-toggle" class="iq-menu">
+                        <li class=" " onmouseover="this.style.background='#ed1818'; this.style.color='white'" onmouseout="this.style.background='none'; this.style.color='black'">
+                            <form id="contact-form" name="contact-form" action="/vendor_dashboard" method="POST">
+                                <input hidden name="vendor_id" class="pull-right" value="{{store.id}}">
+                               
+                              
+                         
+
+                                <span class="ml-4"> <button type='submit' style="background:none;border:none">
+                                   Food List
+                                   </button></span>
+
+                     
+                           
+                            </form>
+                         
+                        </li>
+
+                        <li class=" " onmouseover="this.style.background='#ed1818'; this.style.color='white'" onmouseout="this.style.background='none'; this.style.color='black'">
+                            <form id="contact-form" name="contact-form" action="/vendor_pending_order" method="POST">
+                                <input hidden name="vendor_id" class="pull-right" value="{{store.id}}">
+                               
+                              
+                           
+                                
+                                <span class="ml-4"> <button type='submit' style="background:none;border:none">
+                                   Pending Order <p id="count" style="color:red">{{count}}</p>
+                                   </button></span>
+
+                            
+                          
+                           
+                           
+                            </form>
+                        </li>
+
+                        <li class=" " onmouseover="this.style.background='#ed1818'; this.style.color='white'" onmouseout="this.style.background='none'; this.style.color='black'">
+                            <form id="contact-form" name="contact-form" action="/vendor_transaction" method="POST">
+                                <input hidden name="vendor_id" class="pull-right" value="{{store.id}}">
+                               
+                              
+                           
+
+                                <span class="ml-4"> <button type='submit' style="background:none;border:none">
+                                   Transaction
+                                   </button></span>
+
+                              
+                           
+                           
+                            </form>
+                        </li>
+                        <li class=" " onmouseover="this.style.background='#ed1818'; this.style.color='white'" onmouseout="this.style.background='none'; this.style.color='black'">
+                            <form id="contact-form" name="contact-form" action="/vendor_sales" method="POST">
+                                <input hidden name="store_id" class="pull-right" value="{{store.id}}">
+                               
+                              
+                            
+                               
+
+                                <span class="ml-4"> <button type='submit' style="background:none;border:none">
+                                   Sales
+                                   </button></span>
+
+                              
+                           
+                           
+                            </form>
+                        </li>
+
+                        <li class=" " onmouseover="this.style.background='#ed1818'; this.style.color='white'" onmouseout="this.style.background='none'; this.style.color='black'" >
+                                      
+                                          
+                                           
+                                          
+                            
+                              
+
+                                <span class="ml-4"> <button id="logout" style="background:none;border:none">
+                                  Logout
+                                   </button></span>
+
+                               
+                            </a>
+
+                        </li>
+                    </ul>
+                </nav>
+                <div class="p-3"></div>
+            </div>
+
+        </div>
+
+        <!-- [INCLUDE - TOPBAR MENU] -->
+
+        <div class="iq-top-navbar">
+            <div class="iq-navbar-custom">
+                <nav class="navbar navbar-expand-lg navbar-light p-0">
+                    <div class="iq-navbar-logo d-flex align-items-center justify-content-between">
+                        <i class="ri-menu-line wrapper-menu"></i>
+                        <a href="#" class="header-logo">
+                            <img src="images/n_logo.png" class="img-fluid rounded-normal" alt="logo">
+                            <h5 class="logo-title ml-3">WMSU - Online Canteen</h5>
+
+                        </a>
+                    </div>
+                    <div class="iq-search-bar device-search"></div>
+                    <div class="d-flex align-items-center">
+                        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-label="Toggle navigation">
+                            <i class="ri-menu-3-line"></i>
+                        </button>
+
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav ml-auto navbar-list align-items-center" id="cart_reload">
+                              
+                                {{store.store_name}}
+                                <li class="nav-item nav-icon dropdown caption-content">
+                                    <form id="contact-form" name="contact-form" action="/customer_profile" method="POST">
+                                        
+                                        <input hidden name="vendor_id" class="pull-right" value="{{user.id}}">
+                                       
+                                        <button type='submit' style="background:none;border:none">
+                                            <img src="{{user.image_url}}" width="50px" height="50px" class="card-img-top" alt="">
+                                           </button>
+
+                                      </form>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+
+
+
+        
+			<div class="content-page">
+				<div class="container-fluid">
+					<div class="row">
+					
+						<div class="col-sm-12">
+							<div class="card shadow-bottom shadow-showcase">
+								<div class="card-header d-flex justify-content-between" style="color: #FFF; background-color: #DC143C !important;border-top-left-radius: 10px;border-top-right-radius: 10px;">
+									<div class="header-title">
+										<h4 class="card-title">Customer's Order</h4>
+									</div>
+									<h3><i class="ri-settings-5-fill"></i></h3>
+								</div>
+								<div class="card-body">
+									<div class="row">
+										<div class="col-sm-3">
+											<div class="card shadow-bottom shadow-showcase">
+												<div class="card-header d-flex justify-content-between" style="color: #FFF; background-color: #DC143C !important;border-top-left-radius: 10px;border-top-right-radius: 10px;">
+													<div class="header-title">
+														<h4 class="card-title">Track no.</h4>
+													</div>
+													<h3><i class="ri-settings-5-fill"></i></h3>
+												</div>
+												<div class="card-body">
+													<div class="list-group">
+												
+																<a href="page_vendor_orderlist.php?cust_id=<?= $cust_id; ?>" class="list-group-item list-group-item-action <?php if($_GET['cust_id'] == $cust_id){echo 'active';}else{echo'';}?>">
+																	<div class="d-flex w-100 justify-content-between">
+																		<h6 class="mb-1"><i class='fas fa-arrow-circle-right' style='font-size:20px;color: crimson;'>{{track1}}</i> &nbsp;&nbsp;</h6>
+																	</div>
+																</a>
+													
+													</div>
+												</div>
+											</div>
+										</div>
+										
+										<div class="col-sm-9">
+										
+											<div class="table-responsive-sm bottom-left shadow-showcase" style="border-radius: 10px !important;">
+												<table class="table" id="reload_counter_orderlist">
+													<thead class="text-uppercase" style="background-color: #DC143C;color: #FFF;">
+														<tr>
+															<th class="text-center" scope="col">Food Order</th>
+															<th class="text-center" scope="col">Quantity</th>
+                                                            <th class="text-center" scope="col">Price</th>
+															<th class="text-center" scope="col">Total</th>
+															<th class="text-center" scope="col">Location</th>
+                                                            <th class="text-center" scope="col">Vendor Responce</th>
+														</tr>
+													</thead>
+													
+														
+														<tbody>
+                                                            {% for track in track %}
+															<tr>
+																<td>
+																   <h6 class="mb-0">{{track.food_name}}</h6>
+																 
+																</td>
+                                                                <td>
+                                                                    <h6 class="mb-0">{{track.quantity}}</i> &nbsp; </h6>
+                                                                  
+                                                                 </td>
+                                                                 <td>
+                                                                    <h6 class="mb-0">{{track.price}}</i> &nbsp; </h6>
+                                                                  
+                                                                 </td>
+                                                                 <td>
+                                                                    <h6 class="mb-0">{{track.total}}</i> &nbsp; </h6>
+                                                                  
+                                                                 </td>
+                                                                 <td>
+                                                                    <h6 class="mb-0">{{track.location}}</i> &nbsp; </h6>
+                                                                  
+                                                                 </td>
+																<td class="text-center">
+                                                                    <form id="contact-form" name="contact-form" action="/accept_order" method="POST">
+                                                                        <input type="number" hidden  value="{{track.id}}" name="track_id">
+                                                                        <input type="number" hidden  value="{{store.id}}" name="vendor_id">
+                                                                        <input type="number" hidden  value="{{track.track_no}}" name="track_no">
+                                                                        <input type="number" hidden  value="accpt" name="accepted_order">
+                                                                        <button type="submit" id="bttn_accept" name="bttn_accept" 
+                                                                            class="btn btn-outline-success mt-2 btn-sm">Accept</button>     
+                                                                        <button hidden style="background-color:gray;color:Black" id="bttn_accepted" name="bttn_accept" 
+                                                                            class="btn  mt-2 btn-sm">Accept</button>                      
+                                                                   </form>
+
+                                                                   <form id="contact-form" name="contact-form" action="/cancel_order" method="POST">
+                                                                    <input type="number" hidden  value="{{track.id}}" name="track_id">
+                                                                    <input type="number" hidden  value="{{store.id}}" name="vendor_id">
+                                                                    <input type="number" hidden  value="{{track.track_no}}" name="track_no">
+                                                                    <input type="number" hidden  value="denied" name="denied_order">
+                                                                    <button onclick="" type="submit" id="bttn_denied" name="bttn_denied" 
+																		class="btn btn-outline-danger mt-2 btn-sm"
+																		>Cancelled</button>        
+                                                                    <button hidden style="background-color:gray;color:Black" id="bttn_denied1" name="bttn_accept" 
+                                                                    class="btn mt-2 btn-sm ">Cancelled</button>                                
+                                                               </form>
+																	
+																	
+																</td>
+																
+															</tr>
+                                                            {% endfor %}
+                                                         
+														</tbody>
+												
+												</table>
+											</div>
+											
+										</div>
+                                        <input hidden id="food_msg" class="pull-right" value="{{msg}}">
+                                        <input hidden id="res" class="pull-right" value="{{res}}">
+                                        <div hidden class="card-body" id="ready">
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    <div class="table-responsive-sm bottom-left shadow-showcase" style="border-radius: 10px !important;">
+                                                        <table class="table" id="reload_counter_orderlist">
+                                                            <thead  class="text-uppercase" style="background-color: #DC143C;color: #FFF;">
+                                                                <tr>
+                                                                    <th class="text-center" scope="col"></th>
+                                                                    <th scope="col"> &nbsp;&nbsp;&nbsp; Food Name</th>
+                                                                    <th class="text-center" scope="col">Quantity</th>
+                                                                    <th class="text-center" scope="col">Price</th>
+                                                                    <th class="text-center" scope="col">Total</th>
+                                                                  
+                                                                </tr>
+                                                            </thead>
+                                                                <tbody>
+                                                                   
+                                                                    {% for accepted in accepted %}   
+                                                                  
+                                                                    <tr>
+                                                                     
+                                                                        <td>
+                                                                           
+                                                                           
+                                                                          </td>
+                                                                       <td>
+                                                                        {{accepted.food_name}}
+                                                                       
+                                                                      </td>
+                                                                      <td>
+                                                                        {{accepted.quantity}}
+                                                                        
+                                                                       </td>
+                                 
+                                                                        <td>
+                                                                         {{accepted.price}}
+                                                                        
+                                                                       </td>
+                                                                       <td>
+                                                                     
+                                                                        {{accepted.total}}
+                                                                       </td>
+                                 
+                                                                      
+                                                                      
+                                                                    </tr>
+                                                                    {% endfor %}
+                                                               
+                                                                        <tr class="table-active">
+                                                                            <td class="text-center" colspan='6'>
+                                                                           
+                                                                                <form id="contact-form" name="contact-form" action="/vendor_food_ready" method="POST">
+                                                                                    <input hidden name="track_no" class="pull-right" value="{{customer.track_no}}">
+                                                                                    <input hidden name="customer_id" class="pull-right" value="{{customer.customer_id}}">
+                                                                                    <input hidden name="vendor_id" class="pull-right" value="{{store.id}}">
+                                                                                    <button  onclick="accept_errand_orderlist()" type="submit" class="btn btn-warning btn-block text-uppercase"><b>Food Ready</b></button>
+                                    
+                                                                                </form>
+                                                                           
+                                                                            </td>
+                                                                        </tr>
+                                                                      
+                                                                </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                        </div>
+
+                                        
+									</div>
+									
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- Page end  -->
+				</div>
+			</div>
+    </div>
+
+    <!-- [INCLUDE - FOOTER] -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="sweetalert2.all.min.js"></script>
+    <script>
+        document.getElementById("logout").addEventListener("click", function () {
+            Swal.fire({
+                title: 'Are you sure you want to logout?',
+    
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes'
+            }).then((result)=> {
+                if (result.isConfirmed) {
+                    window.location.replace('/logout');
+    
+                }
+            })
+        });
+    
+    </script>
+
+</body>
+
+</html>
+
+<script>
+    
+    var food_msg = document.getElementById("food_msg");
+    var res = document.getElementById("res");
+    var ready = document.getElementById("ready");
+    var bttn_accept = document.getElementById("bttn_accept");
+    var bttn_accepted = document.getElementById("bttn_accepted");
+    var bttn_denied = document.getElementById("bttn_denied");
+    var bttn_denied1 = document.getElementById("bttn_denied1");
+
+  
+    // Get the value of the input element
+    var inputValue = food_msg.value;
+    var res1 = res.value;
+
+
+
+    if (inputValue == 'accept') {
+        // Add a click event listener to the button
+            ready.hidden = false;
+    }
+
+    if ( res1== 'y') {
+        // Add a click event listener to the button
+        bttn_accepted.hidden = false;
+        bttn_denied.hidden = true;
+        bttn_accept.hidden = true;
+    }
+
+    if ( res1== 'n') {
+        // Add a click event listener to the button
+        bttn_denied1.hidden = false;
+        bttn_denied.hidden = true;
+        bttn_accept.hidden = true;
+    }
+
+
+    
+</script>

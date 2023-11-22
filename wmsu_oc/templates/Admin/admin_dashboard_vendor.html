@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>WMSU | Online Canteen</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="<?= PATH_IMAGES.'n_logo.png'; ?>" />
+    <link rel="stylesheet" href="{{ url_for('static',filename='assets/css/backend-plugin.min.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='assets/css/backend.css')}}">
+
+    <link rel="stylesheet"
+        href="{{ url_for('static',filename='assets/css/vendor/@fortawesome/fontawesome-free/css/all.min.css')}}">
+    <link rel="stylesheet"
+        href="{{ url_for('static',filename='assets/css/vendor/line-awesome/dist/line-awesome/css/line-awesome.min.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='assets/css/vendor/remixicon/fonts/remixicon.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='assets/css/login_style.css')}}">
+
+    <!-- <script src="<?= PATH_JPLUGINS.'jquery-3.5.1.js'?>"></script>  -->
+
+<body class="  ">
+
+    <!-- loader Start -->
+    <!-- <div id="loading">
+                <div id="loading-center"></div>
+            </div> -->
+    <!-- loader END -->
+
+    <!-- Wrapper Start -->
+    <div class="wrapper">
+
+        <!-- [INCLUDE - SIDEBAR MENU] -->
+
+        <div class="iq-sidebar  sidebar-default ">
+            <div class="iq-sidebar-logo d-flex align-items-center justify-content-between">
+                <a href="page_customer_foodslist.php" class="header-logo">
+                    <img src="{{ url_for('static',filename='site_assets/img/n_logo.png')}}"
+                        class="img-fluid rounded-normal light-logo" alt="logo">
+                    <h5 class="logo-title light-logo m-1">Dashboard</h5>
+                </a>
+                <div class="iq-menu-bt-sidebar ml-0">
+                    <i class="las la-bars wrapper-menu"></i>
+                </div>
+            </div>
+
+            <div class="data-scrollbar" data-scroll="1">
+                <nav class="iq-sidebar-menu">
+                    <ul id="iq-sidebar-toggle" class="iq-menu">
+                            
+                               
+                        <li class=" " onmouseover="this.style.background='#ed1818'; this.style.color='white'" onmouseout="this.style.background='none'; this.style.color='black'">
+                            <form id="contact-form" name="contact-form" action="/admin_dashboard" method="POST">
+                                <input hidden name="user_id" class="pull-right" value="{{user_id.id}}">
+                                <span class="ml-4"> <button type='submit' style="background:none;border:none">
+                                   Add New User
+                                   </button></span>                   
+                            </form>
+                        </li>
+                        <li class=" " onmouseover="this.style.background='#ed1818'; this.style.color='white'" onmouseout="this.style.background='none'; this.style.color='black'">
+                            <form id="contact-form" name="contact-form" action="/admin_fee" method="POST">
+                                <input hidden name="user_id" class="pull-right" value="{{user_id.id}}">
+                               
+                                <span class="ml-4"> <button type='submit' style="background:none;border:none">
+                                   Delivery Fee
+                                   </button></span>
+                            
+                            </form>
+                        </li>
+                        <li class=" " onmouseover="this.style.background='#ed1818'; this.style.color='white'" onmouseout="this.style.background='none'; this.style.color='black'">
+                            <form id="contact-form" name="contact-form" action="/admin_transaction" method="POST">
+                                <input hidden name="user_id" class="pull-right" value="{{user_id.id}}">
+                               
+                              
+                                <span class="ml-4"> <button type='submit' style="background:none;border:none">
+                                   Transaction
+                                   </button></span>
+                          
+                            </form>
+                        </li>
+
+
+                        <li class=" " onmouseover="this.style.background='#ed1818'; this.style.color='white'" onmouseout="this.style.background='none'; this.style.color='black'" >
+                          
+                                <span class="ml-4"> <button id="logout" style="background:none;border:none">
+                                  Logout
+                                   </button></span>
+                        </li>
+
+                    </ul>
+                </nav>
+                <div class="p-3"></div>
+            </div>
+
+        </div>
+
+        <!-- [INCLUDE - TOPBAR MENU] -->
+
+        <div class="iq-top-navbar">
+            <div class="iq-navbar-custom">
+                <nav class="navbar navbar-expand-lg navbar-light p-0">
+                    <div class="iq-navbar-logo d-flex align-items-center justify-content-between">
+                        <i class="ri-menu-line wrapper-menu"></i>
+                        <a href="#" class="header-logo">
+                            <img src="images/n_logo.png" class="img-fluid rounded-normal" alt="logo">
+                            <h5 class="logo-title ml-3">WMSU - Online Canteen</h5>
+                            <input type="text" id="msg" hidden value="{{msg}}">
+        
+                        </a>
+                    </div>
+                    <div class="iq-search-bar device-search"></div>
+                    <div class="d-flex align-items-center">
+                        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-label="Toggle navigation">
+                            <i class="ri-menu-3-line"></i>
+                        </button>
+                        
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ml-auto navbar-list align-items-center" >
+                         {{user_id.first_name}}
+                       
+                            
+                            <li class="nav-item nav-icon dropdown caption-content">
+                                <form id="contact-form" name="contact-form" action="/admin_profile" method="POST">
+                                    
+                                    <input hidden name="user_id" class="pull-right" value="{{user_id.id}}">
+                                    <button type='submit' style="background:none;border:none">
+                                        <img src="{{user_id.image_url}}" width="50px" height="50px" class="card-img-top" alt="">
+                                       </button>
+                                  </form>
+                            </li>
+                        </ul>
+                    </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+
+
+
+        <div class="content-page">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <!-- Stat record -->
+                        <div class="row">
+                            <div class="col-lg-3">
+                                <div class="card bottom-left shadow-showcase">
+                                    <div class="card-header d-flex justify-content-between"
+                                        style="color: #FFF; background-color: #DC143C !important;border-top-left-radius: 10px;border-top-right-radius: 10px;">
+                                        <div class="header-title">
+                                            <h4 class="card-title">Vendor</h4>
+                                        </div>
+                                        <h3><i class="ri-settings-5-fill"></i></h3>
+                                    </div>
+                                    <div class="card-body">
+                                        <h2>{{vendor}}</h2>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div hidden class="col-lg-3">
+                                <div class="card bottom-left shadow-showcase">
+                                    <div class="card-header d-flex justify-content-between"
+                                        style="color: #FFF; background-color: #DC143C !important;border-top-left-radius: 10px;border-top-right-radius: 10px;">
+                                        <div class="header-title">
+                                            <h4 class="card-title">Staff</h4>
+                                        </div>
+                                        <h3><i class="ri-settings-5-fill"></i></h3>
+                                    </div>
+                                    <div class="card-body">
+                                        <h2>{{staff}}</h2>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-3">
+                                <div class="card bottom-left shadow-showcase">
+                                    <div class="card-header d-flex justify-content-between"
+                                        style="color: #FFF; background-color: #DC143C !important;border-top-left-radius: 10px;border-top-right-radius: 10px;">
+                                        <div class="header-title">
+                                            <h4 class="card-title">Errand</h4>
+                                        </div>
+                                        <h3><i class="ri-settings-5-fill"></i></h3>
+                                    </div>
+                                    <div class="card-body">
+                                        <h2>{{errand}}</h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                       
+                          
+                        
+                          
+                    </div>
+
+                    <div class="col-lg-12">
+                        <div class="table-responsive rounded mb-3">
+                        <table class="data-tables table mb-0 tbl-server-info table-hover shadow-bottom shadow-showcase" id="vendor_table">
+                            <thead class="bg-white text-uppercase">
+                                <tr class="ligth ligth-data">
+                                    
+                                    <th>Store Name</th>
+                                    <th>Vendor</th>
+                                   
+                                    <th>Sales</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody class="ligth-body">
+                               
+                                {% for user,vendor in record %}
+                               
+                                <tr>
+                                  <td>
+                                   
+                                    {{vendor.store_name}}
+                                   
+                                  </td>
+                                  <td>
+                                    {{user.first_name}} {{user.last_name}}
+                                   
+                                  </td>
+                                 
+                                  <td>
+                                    <button onclick="ready_orderlist()" type="submit" id="bttn_done" name="bttn_done" 
+                                    class="btn btn-success btn-sm"><b>Details</b></button>
+                                    
+                                  </td>
+                                
+                                   <td>
+                                    <form id="contact-form" name="contact-form" action="/delete_vendor" method="POST">
+                                    
+                                        <input hidden name="user_id" class="pull-right" value="{{user_id.id}}">
+                                        <input hidden name="vendor_id" class="pull-right" value="{{vendor.id}}">
+                                        <input hidden name="user" class="pull-right" value="{{user.id}}">
+                                        <button type="submit" id="delete" class="btn btn-danger mt-3"><i class="ri-refresh-line"></i>Delete</button>
+
+                                      </form>
+                                   
+                                  </td>
+                                  
+                                </tr>
+                          
+                              
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                        </div>
+                    </div>
+                </div>
+                <!-- Page end  -->
+            </div>
+        </div>
+    </div>
+
+    <!-- [INCLUDE - FOOTER] -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="sweetalert2.all.min.js"></script>
+    <script>
+        document.getElementById("logout").addEventListener("click", function () {
+            Swal.fire({
+                title: 'Are you sure you want to logout?',
+    
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes'
+            }).then((result)=> {
+                if (result.isConfirmed) {
+                    window.location.replace('/logout');
+    
+                }
+            })
+        });
+    
+   
+    </script>
+
+</body>
+
+</html>
+
+<script>
+    var dropdown = document.getElementById("user_type");
+    var tagToHide = document.getElementById("user");
+    var sn_staff = document.getElementById("sn_staff");
+    var sn_vendor = document.getElementById("sn_vendor");
+    var errand = document.getElementById("errand");
+
+
+    dropdown.addEventListener("change", function () {
+        if (dropdown.value === "Vendor") {
+            tagToHide.hidden = false;
+            sn_vendor.hidden = false;
+            errand.hidden = true;
+            sn_staff.hidden = true;
+            
+
+        } 
+        else if (dropdown.value === "Staff") {
+            tagToHide.hidden = false;
+            sn_staff.hidden = false;
+            sn_vendor.hidden = true;
+            errand.hidden = true;
+
+        } 
+        else if (dropdown.value === "Errand") {
+            tagToHide.hidden = false;
+            sn_vendor.hidden = true;
+            sn_staff.hidden = true;
+            errand.hidden = false;
+
+
+        } 
+        
+        else {
+            tagToHide.hidden = true; 
+        }
+    });
+</script>
+<script>
+    function openCity(evt, cityName) {
+      var i, tabcontent, tablinks;
+      tabcontent = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+      }
+      tablinks = document.getElementsByClassName("tablinks");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+      }
+      document.getElementById(cityName).style.display = "block";
+      evt.currentTarget.className += " active";
+    }
+    </script>

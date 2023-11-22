@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<title>WMSU | Online Canteen</title>
+      
+		<!-- Favicon -->
+		<link rel="shortcut icon" href="<?= PATH_IMAGES.'n_logo.png'; ?>" /> 
+        <link rel="stylesheet" href="{{ url_for('static',filename='assets/css/backend-plugin.min.css')}}">
+        <link rel="stylesheet" href="{{ url_for('static',filename='assets/css/backend.css')}}">
+
+        <link rel="stylesheet" href="{{ url_for('static',filename='assets/css/vendor/@fortawesome/fontawesome-free/css/all.min.css')}}">
+        <link rel="stylesheet" href="{{ url_for('static',filename='assets/css/vendor/line-awesome/dist/line-awesome/css/line-awesome.min.css')}}">
+        <link rel="stylesheet" href="{{ url_for('static',filename='assets/css/vendor/remixicon/fonts/remixicon.css')}}">
+        <link rel="stylesheet" href="{{ url_for('static',filename='assets/css/login_style.css')}}">
+		
+		<!-- <script src="<?= PATH_JPLUGINS.'jquery-3.5.1.js'?>"></script>  -->
+        <body class="  ">
+	
+            <!-- loader Start -->
+            <!-- <div id="loading">
+                <div id="loading-center"></div>
+            </div> -->
+            <!-- loader END -->
+            
+            <!-- Wrapper Start -->
+            <div class="wrapper">
+            
+                <!-- [INCLUDE - SIDEBAR MENU] -->
+
+                <div class="iq-sidebar  sidebar-default ">
+                    <div class="iq-sidebar-logo d-flex align-items-center justify-content-between">
+                        <a href="page_customer_foodslist.php" class="header-logo">
+                            <img src="{{ url_for('static',filename='site_assets/img/n_logo.png')}}" class="img-fluid rounded-normal light-logo" alt="logo"><h5 class="logo-title light-logo m-1">Dashboard</h5>
+                        </a>
+                        <div class="iq-menu-bt-sidebar ml-0">
+                            <i class="las la-bars wrapper-menu"></i>
+                        </div>
+                    </div>
+                  
+                    <div class="data-scrollbar" data-scroll="1">
+                            <nav class="iq-sidebar-menu">
+                                <ul id="iq-sidebar-toggle" class="iq-menu">
+                            
+                               
+                                    <li class=" " onmouseover="this.style.background='#ed1818'; this.style.color='white'" onmouseout="this.style.background='none'; this.style.color='black'">
+                                        <form id="contact-form" name="contact-form" action="/customer_page" method="POST">
+                                            <input hidden name="customer_id" class="pull-right" value="{{customer.id}}">
+                                           
+                                          
+                                       
+                                           
+            
+                                            <span class="ml-4"> <button type='submit' style="background:none;border:none">
+                                               Foods
+                                               </button></span>
+            
+                                           
+                                        
+                                        
+                                        </form>
+                                    </li>
+
+                                    <li class=" " onmouseover="this.style.background='#ed1818'; this.style.color='white'" onmouseout="this.style.background='none'; this.style.color='black'">
+                                        <form id="contact-form" name="contact-form" action="/customer_orderlist" method="POST">
+                                            <input hidden name="customer_id" class="pull-right" value="{{customer.id}}">
+                                           
+                                          
+                                    
+                                          
+            
+                                            <span class="ml-4"> <button type='submit' style="background:none;border:none">
+                                               Order Details
+                                               </button></span>
+            
+                                            
+                          
+                                        </form>
+                                    </li>
+                                    <li class=" " onmouseover="this.style.background='#ed1818'; this.style.color='white'" onmouseout="this.style.background='none'; this.style.color='black'">
+                                        <form id="contact-form" name="contact-form" action="/track" method="POST">
+                                            <input hidden name="customer_id" class="pull-right" value="{{customer.id}}">
+                                        
+                                     
+            
+                                            <span class="ml-4"> <button type='submit' style="background:none;border:none">
+                                               Order Status
+                                               </button></span>
+            
+                                         
+                                      
+                                       
+                                        </form>
+                                    </li>
+
+                                    <li class=" " onmouseover="this.style.background='#ed1818'; this.style.color='white'" onmouseout="this.style.background='none'; this.style.color='black'">
+                                        <form id="contact-form" name="contact-form" action="/customer_transaction" method="POST">
+                                            <input hidden name="customer_id" class="pull-right" value="{{customer.id}}">
+                                            <span class="ml-4"> <button type='submit' style="background:none;border:none">
+                                               Order Complete
+                                               </button></span>
+            
+                                           
+                                       
+                                       
+                                        </form>
+                                    </li>
+
+                                    <li class=" " onmouseover="this.style.background='#ed1818'; this.style.color='white'" onmouseout="this.style.background='none'; this.style.color='black'">
+                                      
+                                          
+                                           
+                                          
+                                       
+                                          
+            
+                                            <span class="ml-4"> <button id="logout" style="background:none;border:none">
+                                              Logout
+                                               </button></span>
+            
+                                           
+                                       
+                            
+                                      
+                                    </li>
+
+
+                                </ul>
+                            </nav>	
+                        <div class="p-3"></div>
+                    </div>
+                 
+                </div> 
+             
+                <!-- [INCLUDE - TOPBAR MENU] -->
+                <div class="iq-top-navbar">
+                    <div class="iq-navbar-custom">
+                        <nav class="navbar navbar-expand-lg navbar-light p-0">
+                            <div class="iq-navbar-logo d-flex align-items-center justify-content-between">
+                                <i class="ri-menu-line wrapper-menu"></i>
+                                <a href="#" class="header-logo">
+                                    <img src="images/n_logo.png" class="img-fluid rounded-normal" alt="logo">
+                                    <h5 class="logo-title ml-3">WMSU - Online Canteen</h5>
+                
+                                </a>
+                            </div>
+                            <div class="iq-search-bar device-search"></div>
+                            <div class="d-flex align-items-center">
+                                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                                    aria-label="Toggle navigation">
+                                    <i class="ri-menu-3-line"></i>
+                                </button>
+                                
+                            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                <ul class="navbar-nav ml-auto navbar-list align-items-center" id="cart_reload">
+                                 {{customer.first_name}}
+                                   
+                                    
+                                    
+                                    <li class="nav-item nav-icon dropdown caption-content">
+                                        <form id="contact-form" name="contact-form" action="/customer_profile" method="POST">
+                                            
+                                            <input hidden name="customer_id" class="pull-right" value="{{customer.id}}">
+                                            <button type='submit' style="background:none;border:none">
+                                                <img src="{{customer.image_url}}" width="50px" height="50px" class="card-img-top" alt="">
+                                               </button>
+                                            
+                                          
+                                        
+                                          </form>
+                                    </li>
+                                </ul>
+                            </div>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+           
+
+                <div class="content-page">
+                    <div class="container-fluid">
+                        <div class="row">                  
+                            <div class="col-lg-12">
+                                <div class="card card-block card-stretch card-height print rounded bottom-left shadow-showcase">
+                                    <div class="card-header d-flex justify-content-between header-invoice" style="background-color: #DC143C !important;border-top-left-radius: 10px;border-top-right-radius: 10px;">
+                                        <div class="iq-header-title">
+                                           <h4 class="card-title mb-0">Order List</h4>
+                                        </div>
+                                        <div class="invoice-btn">
+                                         
+                                        </div>
+                                    </div>
+                                    <div class="card-body" >
+                                        <div class="row">
+                                            
+                                            <div class="col-sm-12">
+                                                <b class="text-danger"><i class="ri-bookmark-fill"></i><small>Order Summary</small></b>
+                                                <div class="table-responsive-sm bottom-left shadow-showcase mt-2" style="border-radius: 10px !important;">
+                                                    <table class="table" id="reload_counter_orderlist">
+                                                        <thead class="text-uppercase" style="background-color: #DC143C;color: #FFF;">
+                                                            <tr>
+                                                                
+                                                                <th scope="col">Food Name</th>
+                                                                <th scope="col">Store Name</th>
+                                                                <th class="text-center" scope="col">Quantity</th>
+                                                                <th class="text-center" scope="col">Price</th>
+                                                                <th class="text-center" scope="col">Totals</th>
+                                                                <th class="text-center" scope="col">Action</th>
+
+                                                            </tr>
+                                                        </thead>
+                                                        
+                                                        <tbody>
+                                                            {% for orderlist in orderlist %}
+                                                            <tr>
+        
+                                                              <td>
+                                                                {{orderlist.food_name}}
+                                                              </td>
+                                                              <td>
+                                                                {{orderlist.store}}
+                                                              </td>
+                                                              <td>
+                                                                {{orderlist.quantity}}
+                                                              </td>
+                                                              <td>
+                                                                {{orderlist.price}}
+                                                              </td>
+                                                              <td>
+                                                                {{orderlist.total}}
+                                                              </td>
+                            
+                                                               <td>
+                                                                <form id="contact-form" name="contact-form" action="/delete_cart" method="POST">
+                                                                    <input hidden name="food_id" class="pull-right" value="{{orderlist.id}}">
+                                                                    <input hidden name="customer_id" class="pull-right" value="{{customer.id}}">
+                                                                  <button type="submit" class="btn btn-danger mt-3"><i class="ri-refresh-line"></i>Delete</button>
+                                    
+                                                                </form>
+                            
+                                                               
+                                                              </td>
+                                                              
+                                                            </tr>
+                                                      
+                                                            {% endfor %}
+                            
+                                                        </tbody>
+                                                       
+                                                    </table>
+                                                </div>
+                                            </div>                              
+                                        </div>
+                                        <div class="row">
+                                            <div class='col-sm-12'>
+                                                <form id="frm_orderlist" name="frm_orderlist" action="/track_order" method="POST" class="form-horizontal" enctype="multipart/form-data">
+                                                  
+                                                              
+                                            </div>
+                                        </div>
+                                                <div class="row mt-4 mb-3 ">
+                                                    <div class="offset-lg-8 col-lg-4 d-flex justify-content-between">
+                                                        <div class="or-detail rounded bottom-left shadow-showcase">
+                                                            <div class="p-3">
+                                                                <div class="mb-2"><h5>Payment Method :</h5>
+                                                                <input type="hidden" id="pay_method" name="pay_method"></div>
+                                                                <button id="bttn_pickup" value="pickup" name="bttn_pickup" type="button" class="btn btn-outline-success mr-2 mb-2"><i class='fa fa-download'></i>Over The Counter</button>
+                                                                <button id="bttn_deliver" value="COD" name="bttn_deliver" type="button" class="btn btn-outline-primary mr-2 mb-2"><i class='fa fa-truck-pickup'></i>Cash-On Delivery</button>
+                                                                
+                                                                <div id="location" class="input-group" hidden>
+                                                                    <label >Office/Building Name</label>
+                                                                    <input id="inputSource"  name="location" class="pull-right" value="" >
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row mt-4 mb-3">
+                                                    <div class="offset-lg-8 col-lg-4">
+                                                        <div class="or-detail rounded bottom-left shadow-showcase" id="reload_counter_orderdetails">
+                                                          
+                                                            <div class="p-3">
+                                                                <h5 class="mb-3">Order Details</h5>
+                                                                <div class="mb-2">
+                                                                    <h6>Total Quantity</h6>
+                                                                    <p><b><mark>{{total_qty}}</mark></b></p>
+                                                                </div>
+                                                                <div class="mb-2">
+                                                                    <h6>Total Item's</h6>
+                                                                    <p><b><mark>{{item}}</mark></b></p>
+                                                                </div>
+                                                                <div class="mb-2">
+                                                                    <h6>Sub Total</h6>
+                                                                    <p><b><mark>{{total_sum}}</mark></b></p>
+                                                                </div>
+                                                                <div class="mb-2" id="pick_del">
+                                                                    <h6>Delivery Fee </h6>
+                                                                    <p><b><mark><span id="del_option">0</span></mark></b></p>
+                                                                </div>
+                                                                <div class="mb-2" hidden id="del_fee">
+                                                                    <h6>Delivery Fee </h6>
+                                                                    <p><b><mark><span id="del_option">{{fee.fees}}</span></mark></b></p>
+                                                                </div>
+                                                            </div>
+                                                            
+                                                            <div class="ttl-amt py-2 px-3 d-flex justify-content-between align-items-center">
+                                                                <h6>Total</h6>
+                                                                    <input hidden id="del_fees" name="del_fees" value="{{fee.fees}}">
+                                                                    <input hidden id="inputField" name="mop" value="">
+                                                                    <input hidden id="inputDestination" name="loc" value="">  
+                                                                    <input hidden  name="customer_id" value="{{customer.id}}">
+                                                                    <input hidden id="pick_sum" name="pick_sum" value="{{total_sum}}">
+                                                                    <input  class="text-primary font-weight-700" id="sum" style="border:none" readonly name="sum"  value="{{total_sum}}">  
+
+                                                        </div>
+                                                         
+                                                    </div>
+                                                </div> 
+                                                
+                                                <div class="row mt-4 mb-3">
+                                                    <div class="offset-lg-8 col-lg-4 ">
+                                                        
+                                                            <a href='' class="card-link btn btn-danger d-inline-block  mr-2">
+                                                                
+                                                             
+                                                                <small><input type="submit"  style="border:none;background:none" value="Place Order">
+                                                                </small>
+                                                                   
+                                                            </a>
+                                                         
+                                                        <button disabled id="bttn_placeorder" name="bttn_placeorder" type="submit" class="btn btn-danger mr-2"><i class='fa fa-cart-arrow-down'></i>Back</button>
+                                                  
+                                                    </div>
+                                                </div>
+                                            </form>
+                                    </div>
+                                </div>
+                            </div>                                    
+                        </div>
+                        <!-- Page end  -->
+                    </div>
+                </div>
+                
+              
+            </div>
+            
+            <!-- [INCLUDE - FOOTER] -->
+            <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+            <script src="sweetalert2.all.min.js"></script>
+            <script>
+                document.getElementById("logout").addEventListener("click", function () {
+                    Swal.fire({
+                        title: 'Are you sure you want to logout?',
+            
+                        icon: 'question',
+                        showCancelButton: true,
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor: '#d33',
+                        confirmButtonText: 'Yes'
+                    }).then((result)=> {
+                        if (result.isConfirmed) {
+                            window.location.replace('/logout');
+            
+                        }
+                    })
+                });
+            
+           
+            </script>
+       
+        </body>
+</html>
+
+<script>
+    // Get references to the input and button elements
+    const hiddenInput = document.getElementById("location");
+    const toggleButton = document.getElementById("bttn_deliver");
+    const togglepickup = document.getElementById("bttn_pickup");
+    const pick_del = document.getElementById("pick_del");
+    const del_fee = document.getElementById("del_fee");
+    const sum = document.getElementById("sum");
+    const pick_sum = document.getElementById("pick_sum");
+    const delivery_fee = document.getElementById("del_fees");
+  
+    // Add a click event listener to the button
+    toggleButton.addEventListener("click", function() {
+        hiddenInput.hidden = false;
+        del_fee.hidden = false;
+        pick_del.hidden = true;
+        const get_sum = sum.value;
+        const get_fee = delivery_fee.value;
+        sum.value = parseFloat(get_sum) + parseFloat(get_fee) ;
+    });
+    togglepickup.addEventListener("click", function() {
+        hiddenInput.hidden = true;
+        del_fee.hidden = true;
+        pick_del.hidden = false;
+        const get_sum = pick_sum.value;
+        sum.value = parseFloat(get_sum);
+    });
+  </script>
+
+  <script>
+    const inputSource = document.getElementById("inputSource");
+    const inputDestination = document.getElementById("inputDestination");
+
+    // Function to automatically copy input from source to destination
+    function autoCopyInput() {
+        const inputValue = inputSource.value;
+        inputDestination.value = inputValue;
+    }
+
+    // Add an input event listener to the source input field
+    inputSource.addEventListener("input", autoCopyInput);
+</script>
+
+<script>
+    const inputField = document.getElementById("inputField");
+    const button1 = document.getElementById("bttn_pickup");
+    const button2 = document.getElementById("bttn_deliver");
+
+    // Function to store the button value in the input field
+    function storeButtonValue(event) {
+        inputField.value = event.target.value;
+    }
+
+    // Add a click event listener to button1
+    button1.addEventListener("click", storeButtonValue);
+
+    // Add a click event listener to button2
+    button2.addEventListener("click", storeButtonValue);
+</script>

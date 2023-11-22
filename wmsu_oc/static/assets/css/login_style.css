@@ -1,0 +1,144 @@
+/* Start Login Layout */
+
+#login-container { 
+width:420px;
+margin:100px auto 0 auto;
+}
+div.login-content {
+margin:0 auto;
+width:422px;
+height:234px;
+padding-top:8px;
+text-align:left;
+color:#fff;
+background:url(../images/login-bg.png) no-repeat;
+}
+div.login-content a{color:#fff;text-decoration:underline;}
+div.login-content a:hover{color:#999;}
+
+div.login-content div.login-content-main { padding:4px 14px 20px 14px;}
+.login-logo { text-align:center }
+#login-container label { font-weight:bold }
+#login-container input.text-field { width:150px; margin:2px 0 10px 0; }
+.login-button {display:inline;margin-left:99px;margin-right:2px;}
+.send-button { float:right; display:inline;margin-top:-15px;margin-right:42px;}
+#login-indicator {display:inline; height:36px; font-size:12px; font-weight:bold;margin-top:10px; }
+#login-indicator-msg { 
+	width:100%; 
+	display:block;
+	padding: 0px 0px 0px 50px !important;
+	color:#ed1818;
+	}
+.login-msg-process {
+	height:40px;
+	line-height:40px;
+	text-indent:3em;
+	padding-top:4px;	
+	color: #04BB0A;
+}
+.indicator-msg {
+	height:65px;
+	line-height:40px;
+	background:url(/onlinecanteen/images/hourglass.gif) no-repeat left;
+	text-indent:3em;
+	padding: 15px 0px 15px 20px !important;
+	margin-left: 105px;
+}
+
+div.login-content .login-msg-valid { padding-top:4px; color:#fff; }
+div.login-content .login-msg-error { padding-top:4px; color:#ed1818; margin: 20px 0 20px 0px;}
+.content1{float:left;width:210px;overflow:hidden;padding-top:10px;}
+.content2{float:right;width:155px;padding-left:10px;border-left:2px solid #b00;overflow:hidden;margin-top: 15px;}
+#login-credit { text-align:center; }
+
+/* End Login Layout */
+
+
+/* Style the tab */
+.tab {
+	overflow: hidden;
+	border: 1px solid #ccc;
+	background-color: #f1f1f1;
+  }
+  
+  /* Style the buttons inside the tab */
+  .tab button {
+	background-color: inherit;
+	float: left;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	padding: 14px 16px;
+	transition: 0.3s;
+	font-size: 17px;
+  }
+  
+  /* Change background color of buttons on hover */
+  .tab button:hover {
+	background-color: #ddd;
+  }
+  
+  /* Create an active/current tablink class */
+  .tab button.active {
+	background-color: #ccc;
+  }
+  
+  /* Style the tab content */
+  .tabcontent {
+	display: none;
+	padding: 6px 12px;
+	border: 1px solid #ccc;
+	border-top: none;
+  }
+
+
+  .container {
+	width: 100%;
+  }
+  
+  .progressbar {
+	counter-reset: step;
+  }
+  .progressbar li {
+	list-style: none;
+	display: inline-block;
+	width: 23.33%;
+	position: relative;
+	text-align: center;
+	cursor: pointer;
+  }
+  .progressbar li:before {
+	content: counter(step);
+	counter-increment: step;
+	width: 30px;
+	height: 30px;
+	line-height : 30px;
+	border: 1px solid #ddd;
+	border-radius: 100%;
+	display: block;
+	text-align: center;
+	margin: 0 auto 10px auto;
+	background-color: #fff;
+  }
+  .progressbar li:after {
+	content: "";
+	position: absolute;
+	width: 100%;
+	height: 1px;
+	background-color: #ddd;
+	top: 15px;
+	left: -50%;
+	z-index : -1;
+  }
+  .progressbar li:first-child:after {
+	content: none;
+  }
+  .progressbar li.active {
+	color: #ed1818;
+  }
+  .progressbar li.active:before {
+	border-color: #ed1818;
+  } 
+  .progressbar li.active + li:after {
+	background-color: #ed1818;
+  }

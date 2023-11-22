@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<title>WMSU | Online Canteen</title>
+      
+		<!-- Favicon -->
+		<link rel="shortcut icon" href="<?= PATH_IMAGES.'n_logo.png'; ?>" /> 
+        <link rel="stylesheet" href="{{ url_for('static',filename='assets/css/backend-plugin.min.css')}}">
+        <link rel="stylesheet" href="{{ url_for('static',filename='assets/css/backend.css')}}">
+
+        <link rel="stylesheet" href="{{ url_for('static',filename='assets/css/vendor/@fortawesome/fontawesome-free/css/all.min.css')}}">
+        <link rel="stylesheet" href="{{ url_for('static',filename='assets/css/vendor/line-awesome/dist/line-awesome/css/line-awesome.min.css')}}">
+        <link rel="stylesheet" href="{{ url_for('static',filename='assets/css/vendor/remixicon/fonts/remixicon.css')}}">
+        <link rel="stylesheet" href="{{ url_for('static',filename='assets/css/login_style.css')}}">
+		
+		<!-- <script src="<?= PATH_JPLUGINS.'jquery-3.5.1.js'?>"></script>  -->
+        <body class="  ">
+	
+            <!-- loader Start -->
+            <!-- <div id="loading">
+                <div id="loading-center"></div>
+            </div> -->
+            <!-- loader END -->
+            
+            <!-- Wrapper Start -->
+            <div class="wrapper">
+            
+                <!-- [INCLUDE - SIDEBAR MENU] -->
+
+                <div class="iq-sidebar  sidebar-default ">
+                    <div class="iq-sidebar-logo d-flex align-items-center justify-content-between">
+                        <a href="page_customer_foodslist.php" class="header-logo">
+                            <img src="{{ url_for('static',filename='site_assets/img/n_logo.png')}}" class="img-fluid rounded-normal light-logo" alt="logo"><h5 class="logo-title light-logo m-1">Dashboard</h5>
+                        </a>
+                        <div class="iq-menu-bt-sidebar ml-0">
+                            <i class="las la-bars wrapper-menu"></i>
+                        </div>
+                    </div>
+                  
+                    <div class="data-scrollbar" data-scroll="1">
+                            <nav class="iq-sidebar-menu">
+                                <ul id="iq-sidebar-toggle" class="iq-menu">
+                            
+                               
+                                    <li class=" " onmouseover="this.style.background='#ed1818'; this.style.color='white'" onmouseout="this.style.background='none'; this.style.color='black'">
+                                        <form id="contact-form" name="contact-form" action="/customer_page" method="POST">
+                                            <input hidden name="customer_id" class="pull-right" value="{{customer.id}}">
+                                           
+                                          
+                                       
+                                           
+            
+                                            <span class="ml-4"> <button type='submit' style="background:none;border:none">
+                                               Foods
+                                               </button></span>
+            
+                                           
+                                        
+                                        
+                                        </form>
+                                    </li>
+
+                                    <li class=" " onmouseover="this.style.background='#ed1818'; this.style.color='white'" onmouseout="this.style.background='none'; this.style.color='black'">
+                                        <form id="contact-form" name="contact-form" action="/customer_orderlist" method="POST">
+                                            <input hidden name="customer_id" class="pull-right" value="{{customer.id}}">
+                                           
+                                          
+                                    
+                                          
+            
+                                            <span class="ml-4"> <button type='submit' style="background:none;border:none">
+                                               Order Details
+                                               </button></span>
+            
+                                            
+                          
+                                        </form>
+                                    </li>
+                                    <li class=" " onmouseover="this.style.background='#ed1818'; this.style.color='white'" onmouseout="this.style.background='none'; this.style.color='black'">
+                                        <form id="contact-form" name="contact-form" action="/track" method="POST">
+                                            <input hidden name="customer_id" class="pull-right" value="{{customer.id}}">
+                                        
+                                     
+            
+                                            <span class="ml-4"> <button type='submit' style="background:none;border:none">
+                                               Order Status
+                                               </button></span>
+            
+                                         
+                                      
+                                       
+                                        </form>
+                                    </li>
+
+                                    <li class=" " onmouseover="this.style.background='#ed1818'; this.style.color='white'" onmouseout="this.style.background='none'; this.style.color='black'">
+                                        <form id="contact-form" name="contact-form" action="/customer_transaction" method="POST">
+                                            <input hidden name="customer_id" class="pull-right" value="{{customer.id}}">
+                                            <span class="ml-4"> <button type='submit' style="background:none;border:none">
+                                               Order Complete
+                                               </button></span>
+            
+                                           
+                                       
+                                       
+                                        </form>
+                                    </li>
+
+                                    <li class=" " onmouseover="this.style.background='#ed1818'; this.style.color='white'" onmouseout="this.style.background='none'; this.style.color='black'">
+                                      
+                                          
+                                           
+                                          
+                                       
+                                          
+            
+                                            <span class="ml-4"> <button id="logout" style="background:none;border:none">
+                                              Logout
+                                               </button></span>
+            
+                                           
+                                       
+                            
+                                      
+                                    </li>
+
+
+                                </ul>
+                            </nav>	
+                        <div class="p-3"></div>
+                    </div>
+                 
+                </div> 
+             
+                <!-- [INCLUDE - TOPBAR MENU] -->
+                <div class="iq-top-navbar">
+                    <div class="iq-navbar-custom">
+                        <nav class="navbar navbar-expand-lg navbar-light p-0">
+                            <div class="iq-navbar-logo d-flex align-items-center justify-content-between">
+                                <i class="ri-menu-line wrapper-menu"></i>
+                                <a href="#" class="header-logo">
+                                    <img src="images/n_logo.png" class="img-fluid rounded-normal" alt="logo">
+                                    <h5 class="logo-title ml-3">WMSU - Online Canteen</h5>
+                
+                                </a>
+                            </div>
+                            <div class="iq-search-bar device-search"></div>
+                            <div class="d-flex align-items-center">
+                                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                                    aria-label="Toggle navigation">
+                                    <i class="ri-menu-3-line"></i>
+                                </button>
+                                
+                            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                <ul class="navbar-nav ml-auto navbar-list align-items-center" id="cart_reload">
+                                  {{customer.first_name}}
+                                 
+                                    
+                                    <li class="nav-item nav-icon dropdown caption-content">
+                                        <form id="contact-form" name="contact-form" action="/customer_profile" method="POST">
+                                            
+                                            <input hidden name="customer_id" class="pull-right" value="{{customer.id}}">
+                                            <button type='submit' style="background:none;border:none">
+                                                <img src="{{customer.image_url}}" width="50px" height="50px" class="card-img-top" alt="">
+                                               </button>
+                                            
+                                          
+                                        
+                                          </form>
+                                    </li>
+                                </ul>
+                            </div>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+           
+                <input hidden id="msg" class="pull-right" value="{{msg}}">
+
+
+                <div id="step1" class="content-page">
+                    <div class="container-fluid">
+                        <div class="row">
+                                                    
+                                    <div class='col-md-12'> 
+                                        
+                                    </div>
+                               
+                            <div class="col-lg-3">
+                                <div class="card bottom-left shadow-showcase">
+                                    <div class="card-header d-flex justify-content-between" style="color: #FFF; background-color: #DC143C !important;border-top-left-radius: 10px;border-top-right-radius: 10px;">
+                                        <div class="header-title">
+                                            <h4 class="card-title">Order Track No.</h4>
+                                        </div>
+                                        <h3><i class="ri-settings-5-fill"></i></h3>
+                                    </div>
+                                        
+                                    <div class="card-body">
+                                        <b class="text-danger"><i class="ri-bookmark-fill"></i><small></small></b>
+                                        <p class="mb-2"><em><i class="ri-arrow-drop-right-fill"></i>
+                                            <small>Your Track number: </small></em>
+                                        </p>
+                                        <div class="list-group">
+                                            
+                                                    <a href="" class="list-group-item list-group-item-action"active"">
+                                                       <div class="d-flex w-100 justify-content-between">
+                                                            <h5 class="mb-1"></h5>
+                                                            <span class="mb-1 badge badge-danger"></span>
+                                                       </div>
+                                                    </a>
+                                                
+                                              
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-9">
+                              
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="card bottom-left shadow-showcase">
+                                            <div class="card-header d-flex justify-content-between" style="color: #FFF; background-color: #DC143C !important;border-top-left-radius: 10px;border-top-right-radius: 10px;">
+                                                <div class="header-title">
+                                                    <h4 class="card-title">Delivery Process</h4>
+                                                </div>
+                                                <h3><i class="ri-settings-5-fill"></i></h3>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="card-header d-flex justify-content-between">
+                                                    <div class="header-title">
+                                                       <!-- <b class="text-danger"><i class="ri-bookmark-fill"></i><small>Notes:</small></b>
+                                                        <p class="mb-2"><em><i class="ri-arrow-drop-right-fill"></i><small>Just wait for the Errand to accept your food for delivery.</small></em></p>--> 
+                                                    </div>
+                                                  
+                                                        <div class="alert alert-success bottom-left shadow-showcase" role="alert">
+                                                            <div class="iq-alert-text">
+                                                                <small>Payment Method  </small>:  &nbsp; &nbsp; <b><i class="ri-check-double-line"></i></b>
+                                                            </div>
+                                                        </div>
+                                                 
+                                                        <div class="alert alert-warning bottom-left shadow-showcase" role="alert">
+                                                            <div class="iq-alert-text"><i class="ri-loader-2-line"></i>
+                                                                <small>Office/Building Name: </small>
+                                                            </div>
+                                                        </div>
+                                                
+                                                    
+                                                </div>
+                                                <ul class="list-inline p-0 m-0">
+                                                    <li class="mb-4">
+                                                        <div class="d-flex align-items-center pt-2">
+                                                            <div class="ml-3 w-100">
+                                                              
+                                                                    <div class="media align-items-center justify-content-between">
+                                                                        <p class="mb-0"><em><i class="ri-arrow-drop-right-fill"></i><small>Track your Delivery here!.</small></em></p>
+                                                                        <h6><mark></mark> . . . (<span class="text-danger"> </span>)</h6>
+                                                                    </div>
+                                                                    <div class="container">
+                                                                        <ul class="progressbar">
+                                                                          <li class="active">Pending Order</li>
+                                                                          <li>Food is Ready</li>
+                                                                          <li>Payment</li>
+                                                                          <li>Done</li>
+                                                                        </ul>
+                                                                    </div>
+                                                             
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                               
+                            </div>
+                            <div class="col-lg-12">
+                                
+                                <div class="card bottom-left shadow-showcase">
+                                    <div class="card-header d-flex justify-content-between" style="color: #FFF; background-color: #DC143C !important;border-top-left-radius: 10px;border-top-right-radius: 10px;">
+                                        <div class="header-title">
+                                      
+                                        
+                                            
+                                        </div>
+                                        
+                                        <h3><i class="ri-settings-5-fill"></i></h3>
+                                    </div>
+                                    <div class="card-body">
+                                        
+
+                                        <div  class="table-responsive-sm bottom-left shadow-showcase mb-2" style="border-radius: 10px !important;">
+                                            <table class="table" id="reload_counter_orderlist">
+                                                <thead class="text-uppercase" style="background-color: #DC143C;color: #FFF;">
+                                                    <tr>
+                                                        <th class="text-center" scope="col">Food</th>
+                                                        <th class="text-center" scope="col">Vendor</th>
+                                                        <th class="text-center" scope="col">Quantity</th>
+                                                        <th class="text-center" scope="col">Price</th>
+                                                        <th class="text-center" scope="col">Total</th>
+                                                        <th class="text-center" scope="col">Responce</th>
+                                                       
+                                                       
+                                                    </tr>
+                                                </thead>
+                                        
+                                                    
+                                                    <tbody>
+                                                        
+                                                          
+                                                            <tr>
+                                                           
+                                                            <td>
+                                                               
+                                                            </td>
+                                                            <td>
+                                                               
+                                                            </td>
+                                                            <td>
+                                                              
+                                                            </td>
+                                                            <td>
+                                                              
+                                                            </td>
+
+                                                            <td>
+                                                                
+                                                            </td>
+                                                            <td>
+                                                              
+                                                            </td>
+                                                            
+                                                            </tr>
+                                                    
+                                                          
+
+  
+                                                    </tbody>
+                                              
+                                                   
+                                              
+                                            </table>
+                                        </div>
+                                      
+                                    </div>
+
+                                    <div class="alert alert-success bottom-left shadow-showcase" role="alert" hidden>
+                                        <div class="iq-alert-text">
+                                            <small>Total Payment  </small>: &nbsp; &nbsp; <b><i class="ri-check-double-line"></i></b>
+                                        </div>
+                                    </div>
+
+                                    
+                                </div>
+                              
+                            </div>
+                        </div>
+                        <!-- Page end  -->
+                    </div>
+                </div>
+
+
+                <div hidden id="step2" class="content-page">
+                    <div class="container-fluid">
+                        <div class="row">
+                           
+                               
+                             
+                                    <div class='col-md-12'> 
+                                        
+                                    </div>
+                               
+                            <div class="col-lg-3">
+                                <div class="card bottom-left shadow-showcase">
+                                    <div class="card-header d-flex justify-content-between" style="color: #FFF; background-color: #DC143C !important;border-top-left-radius: 10px;border-top-right-radius: 10px;">
+                                        <div class="header-title">
+                                            <h4 class="card-title">Order Track No.</h4>
+                                        </div>
+                                        <h3><i class="ri-settings-5-fill"></i></h3>
+                                    </div>
+                                        
+                                    <div class="card-body">
+                                        <b class="text-danger"><i class="ri-bookmark-fill"></i><small></small></b>
+                                        <p class="mb-2"><em><i class="ri-arrow-drop-right-fill"></i>
+                                            <small>Your Track number: </small></em>
+                                        </p>
+                                        <div class="list-group">
+                                            
+                                                    <a href="" class="list-group-item list-group-item-action"active"">
+                                                       <div class="d-flex w-100 justify-content-between">
+                                                            <h5 class="mb-1"></h5>
+                                                            <span class="mb-1 badge badge-danger"></span>
+                                                       </div>
+                                                    </a>
+                                                
+                                              
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-9">
+                              
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="card bottom-left shadow-showcase">
+                                            <div class="card-header d-flex justify-content-between" style="color: #FFF; background-color: #DC143C !important;border-top-left-radius: 10px;border-top-right-radius: 10px;">
+                                                <div class="header-title">
+                                                    <h4 class="card-title">Delivery Process</h4>
+                                                </div>
+                                                <h3><i class="ri-settings-5-fill"></i></h3>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="card-header d-flex justify-content-between">
+                                                    <div class="header-title">
+                                                       <!-- <b class="text-danger"><i class="ri-bookmark-fill"></i><small>Notes:</small></b>
+                                                        <p class="mb-2"><em><i class="ri-arrow-drop-right-fill"></i><small>Just wait for the Errand to accept your food for delivery.</small></em></p>--> 
+                                                    </div>
+                                                  
+                                                        <div class="alert alert-success bottom-left shadow-showcase" role="alert">
+                                                            <div class="iq-alert-text">
+                                                                <small>Payment Method  </small>:  &nbsp; &nbsp; <b><i class="ri-check-double-line"></i></b>
+                                                            </div>
+                                                        </div>
+                                                 
+                                                        <div class="alert alert-warning bottom-left shadow-showcase" role="alert">
+                                                            <div class="iq-alert-text"><i class="ri-loader-2-line"></i>
+                                                                <small>Office/Building Name:</small>
+                                                            </div>
+                                                        </div>
+                                                
+                                                    
+                                                </div>
+                                                <ul class="list-inline p-0 m-0">
+                                                    <li class="mb-4">
+                                                        <div class="d-flex align-items-center pt-2">
+                                                            <div class="ml-3 w-100">
+                                                              
+                                                                    <div class="media align-items-center justify-content-between">
+                                                                        <p class="mb-0"><em><i class="ri-arrow-drop-right-fill"></i><small>Track your Delivery here!.</small></em></p>
+                                                                        <h6><mark></mark> . . . (<span class="text-danger"> </span>)</h6>
+                                                                    </div>
+                                                                    <div class="container">
+                                                                        <ul class="progressbar">
+                                                                          <li class="active">Pending Order</li>
+                                                                          <li class="active">Food is Ready</li>
+                                                                          <li>Payment</li>
+                                                                          <li>Done</li>
+                                                                        </ul>
+                                                                    </div>
+                                                             
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                               
+                            </div>
+                            <div class="col-lg-12">
+                                
+                                <div class="card bottom-left shadow-showcase">
+                                    <div class="card-header d-flex justify-content-between" style="color: #FFF; background-color: #DC143C !important;border-top-left-radius: 10px;border-top-right-radius: 10px;">
+                                        <div class="header-title">
+                                      
+                                        
+                                            
+                                        </div>
+                                        
+                                        <h3><i class="ri-settings-5-fill"></i></h3>
+                                    </div>
+                                    <div class="card-body">
+                                        
+
+                                        <div  class="table-responsive-sm bottom-left shadow-showcase mb-2" style="border-radius: 10px !important;">
+                                            <table class="table" id="reload_counter_orderlist">
+                                                <thead class="text-uppercase" style="background-color: #DC143C;color: #FFF;">
+                                                    <tr>
+                                                        <th class="text-center" scope="col">Food</th>
+                                                        <th class="text-center" scope="col">Vendor</th>
+                                                        <th class="text-center" scope="col">Quantity</th>
+                                                        <th class="text-center" scope="col">Price</th>
+                                                        <th class="text-center" scope="col">Total</th>
+                                                        <th class="text-center" scope="col">Responce</th>
+                                                       
+                                                       
+                                                    </tr>
+                                                </thead>
+                                        
+                                                    
+                                                    <tbody>
+                                                        
+                                                           
+                                                            <tr>
+                                                           
+                                                            <td>
+                                                               
+                                                            </td>
+                                                            <td>
+                                                                
+                                                            </td>
+                                                            <td>
+                                                               
+                                                            </td>
+                                                            <td>
+                                                                
+                                                            </td>
+
+                                                            <td>
+                                                               
+                                                            </td>
+                                                            <td>
+                                                               
+                                                            </td>
+                                                            
+                                                            </tr>
+                                                    
+                                                           
+
+  
+                                                    </tbody>
+                                              
+                                                   
+                                              
+                                            </table>
+                                        </div>
+
+                                        
+                                      
+                                    </div>
+
+                                    <div class="alert alert-success bottom-left shadow-showcase" role="alert" >
+                                        <div class="iq-alert-text">
+                                            <small>Total Payment  </small>: &nbsp; &nbsp; <b><i class="ri-check-double-line"></i></b>
+                                        </div>
+                                    </div>
+
+                                    
+                                </div>
+                              
+                            </div>
+                        </div>
+                        <!-- Page end  -->
+                    </div>
+                </div>
+
+                <div hidden id="step3" class="content-page">
+                    <div class="container-fluid">
+                        <div class="row">
+                           
+                               
+                             
+                                    <div class='col-md-12'> 
+                                        
+                                    </div>
+                               
+                            <div class="col-lg-3">
+                                <div class="card bottom-left shadow-showcase">
+                                    <div class="card-header d-flex justify-content-between" style="color: #FFF; background-color: #DC143C !important;border-top-left-radius: 10px;border-top-right-radius: 10px;">
+                                        <div class="header-title">
+                                            <h4 class="card-title">Order Track No.</h4>
+                                        </div>
+                                        <h3><i class="ri-settings-5-fill"></i></h3>
+                                    </div>
+                                        
+                                    <div class="card-body">
+                                        <b class="text-danger"><i class="ri-bookmark-fill"></i><small></small></b>
+                                        <p class="mb-2"><em><i class="ri-arrow-drop-right-fill"></i>
+                                            <small>Your Track number: </small></em>
+                                        </p>
+                                        <div class="list-group">
+                                            
+                                                    <a href="" class="list-group-item list-group-item-action"active"">
+                                                       <div class="d-flex w-100 justify-content-between">
+                                                            <h5 class="mb-1"></h5>
+                                                            <span class="mb-1 badge badge-danger"></span>
+                                                       </div>
+                                                    </a>
+                                                
+                                              
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-9">
+                              
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="card bottom-left shadow-showcase">
+                                            <div class="card-header d-flex justify-content-between" style="color: #FFF; background-color: #DC143C !important;border-top-left-radius: 10px;border-top-right-radius: 10px;">
+                                                <div class="header-title">
+                                                    <h4 class="card-title">Delivery Process</h4>
+                                                </div>
+                                                <h3><i class="ri-settings-5-fill"></i></h3>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="card-header d-flex justify-content-between">
+                                                    <div class="header-title">
+                                                       <!-- <b class="text-danger"><i class="ri-bookmark-fill"></i><small>Notes:</small></b>
+                                                        <p class="mb-2"><em><i class="ri-arrow-drop-right-fill"></i><small>Just wait for the Errand to accept your food for delivery.</small></em></p>--> 
+                                                    </div>
+                                                  
+                                                        <div class="alert alert-success bottom-left shadow-showcase" role="alert">
+                                                            <div class="iq-alert-text">
+                                                                <small>Payment Method  </small>: &nbsp; &nbsp; <b><i class="ri-check-double-line"></i></b>
+                                                            </div>
+                                                        </div>
+                                                 
+                                                        <div class="alert alert-warning bottom-left shadow-showcase" role="alert">
+                                                            <div class="iq-alert-text"><i class="ri-loader-2-line"></i>
+                                                                <small>Office/Building Name: </small>
+                                                            </div>
+                                                        </div>
+                                                
+                                                    
+                                                </div>
+                                                <ul class="list-inline p-0 m-0">
+                                                    <li class="mb-4">
+                                                        <div class="d-flex align-items-center pt-2">
+                                                            <div class="ml-3 w-100">
+                                                              
+                                                                    <div class="media align-items-center justify-content-between">
+                                                                        <p class="mb-0"><em><i class="ri-arrow-drop-right-fill"></i><small>Track your Delivery here!.</small></em></p>
+                                                                        <h6><mark></mark> . . . (<span class="text-danger"> </span>)</h6>
+                                                                    </div>
+                                                                    <div class="container">
+                                                                        <ul class="progressbar">
+                                                                          <li class="active">Pending Order</li>
+                                                                          <li class="active">Food is Ready</li>
+                                                                          <li class="active">Payment</li>
+                                                                          <li>Done</li>
+                                                                        </ul>
+                                                                    </div>
+                                                             
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                               
+                            </div>
+                            <div class="col-lg-12">
+                                
+                                <div class="card bottom-left shadow-showcase">
+                                    <div class="card-header d-flex justify-content-between" style="color: #FFF; background-color: #DC143C !important;border-top-left-radius: 10px;border-top-right-radius: 10px;">
+                                        <div class="header-title">
+                                      
+                                        
+                                            
+                                        </div>
+                                        
+                                        <h3><i class="ri-settings-5-fill"></i></h3>
+                                    </div>
+                                    <div class="card-body">
+                                        
+
+                                        <div  class="table-responsive-sm bottom-left shadow-showcase mb-2" style="border-radius: 10px !important;">
+                                            <table class="table" id="reload_counter_orderlist">
+                                                <thead class="text-uppercase" style="background-color: #DC143C;color: #FFF;">
+                                                    <tr>
+                                                        <th class="text-center" scope="col">Food</th>
+                                                        <th class="text-center" scope="col">Vendor</th>
+                                                        <th class="text-center" scope="col">Quantity</th>
+                                                        <th class="text-center" scope="col">Price</th>
+                                                        <th class="text-center" scope="col">Total</th>
+                                                        <th class="text-center" scope="col">Responce</th>
+                                                       
+                                                       
+                                                    </tr>
+                                                </thead>
+                                        
+                                                    
+                                                    <tbody>
+                                                        
+                                                            {% for delivery in delivery %}
+                                                            <tr>
+                                                           
+                                                            <td>
+                                                                {{delivery.food_name}}
+                                                            </td>
+                                                            <td>
+                                                                {{delivery.vendor}}
+                                                            </td>
+                                                            <td>
+                                                                {{delivery.quantity}}
+                                                            </td>
+                                                            <td>
+                                                                {{delivery.price}}
+                                                            </td>
+
+                                                            <td>
+                                                                {{delivery.total}}
+                                                            </td>
+                                                            <td>
+                                                                {{delivery.response}}
+                                                            </td>
+                                                            
+                                                            </tr>
+                                                    
+                                                            {% endfor %}
+
+  
+                                                    </tbody>
+                                              
+                                                   
+                                              
+                                            </table>
+                                        </div>
+
+                                        
+                                      
+                                    </div>
+
+                                    <div class="alert alert-success bottom-left shadow-showcase" role="alert" >
+                                        <div class="iq-alert-text">
+                                            <small>Total Payment  </small>: &nbsp; &nbsp; <b><i class="ri-check-double-line"></i></b>
+                                        </div>
+                                    </div>
+
+                                    
+                                </div>
+                              
+                            </div>
+                        </div>
+                        <!-- Page end  -->
+                    </div>
+                </div>
+            </div>
+            
+            <!-- [INCLUDE - FOOTER] -->
+            <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+            <script src="sweetalert2.all.min.js"></script>
+            <script>
+                document.getElementById("logout").addEventListener("click", function () {
+                    Swal.fire({
+                        title: 'Are you sure you want to logout?',
+            
+                        icon: 'question',
+                        showCancelButton: true,
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor: '#d33',
+                        confirmButtonText: 'Yes'
+                    }).then((result)=> {
+                        if (result.isConfirmed) {
+                            window.location.replace('/logout');
+            
+                        }
+                    })
+                });
+            
+           
+            </script>
+       
+        </body>
+</html>
+
+<script>
+    // Get references to the input and button elements
+    const step1 = document.getElementById("step1");
+    const step2 = document.getElementById("step2");
+    const step3 = document.getElementById("step3");
+
+
+    var inputElement = document.getElementById("msg");
+    // Get the value of the input element
+    var inputValue = inputElement.value;
+
+
+    if (inputValue == 'ready') {
+        // Add a click event listener to the button
+            step1.hidden = true;
+            step2.hidden = false;   
+    }
+
+    if (inputValue == 'payment') {
+        // Add a click event listener to the button
+            step1.hidden = true;
+            step2.hidden = true; 
+            step3.hidden = false;  
+    }
+    
+  </script>
+  <script>
+    document.getElementById("logout").addEventListener("click", function () {
+        Swal.fire({
+            title: 'Are you sure you want to logout?',
+
+            icon: 'question',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes'
+        }).then((result)=> {
+            if (result.isConfirmed) {
+                window.location.replace('/logout');
+
+            }
+        })
+    });
+
+
+</script>
+
+
+  
